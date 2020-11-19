@@ -1,0 +1,21 @@
+nav {
+    color: #fff;
+    /* background-color: #ee6e73; */
+    background: linear-gradient(to right, #4776e6, #8e54e9);
+    width: 100%;
+    height: 56px;
+    line-height: 56px;
+}
+nav .brand-logo {
+    position: relative;
+    color: #fff;
+    display: inline-block;
+    font-size: 2.1rem;
+    padding: 0;
+    left: 13%;
+}
+
+ .body {
+    background-color: #f2f2f2;
+ }
+
