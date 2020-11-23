@@ -177,4 +177,6 @@ router.post('/accept', async(req,res,next) =>{
     }
     res.json({owners:owner.toObject({getters:true})} )
 })
-
+
+
+module.exports =  router;
