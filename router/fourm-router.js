@@ -12,10 +12,9 @@ router.get('/',async(req, res, next) =>{
     try {
         allQuestions = await Forum.find();
     } catch (err) {
-        const error =  new HttpError('Fetching forum failed, please try again later.',500);
-        return next(error)
+        res.status(500).json({message:'Fetching forum failed, please try again later.'});
     }
-    res.json({allQuestions:allQuestions.map(f => f.toObject({ getters : true})) })
+    res.status(201).json({allQuestions:allQuestions.map(f => f.toObject({ getters : true})) })
 });
 
 
@@ -28,21 +27,20 @@ router.get('/:id', async(req, res, next) =>{
     try {
         forum = await Forum.findById(id);
     } catch (error) {
-        return next(error)
+        res.status(500).json({message:'Fetching forum failed, please try again later.'});
     }
 
    if(!forum){
-       const error=   new HttpError('Could not find forum.',404);
-       return next(error0)
+    res.status(404).json({message:'Fetching forum failed, please try again laterCould not find forum.'});
    }
 
-   res.json({forum:forum.toObject({getters:true})} )
+   res.status(201).json({forum:forum.toObject({getters:true})} )
 }) ;
  
 
 /// create a question
 router.post('/create',async(req,res,next) =>{
-    const { fid,question} = req.body;
+    const { fid,question} = req.body.data;
 
     const user = await User.findById(fid);
     const fName = user.userName;
@@ -54,11 +52,7 @@ router.post('/create',async(req,res,next) =>{
     try{
         await createQuestion.save();
     }catch (err){
-        const error =  new HttpError(
-            'Failed to create question, please try again.',
-            500 
-        );
-        return next(err);
+        res.status(500).json({message:'Failed to create question, please try again.'});
     }
      
 
@@ -70,7 +64,7 @@ router.post('/create',async(req,res,next) =>{
 
 
 router.patch('/:forumid', async (req, res, next) => {
-    const {comment,fid} = req.body;
+    const {comment,fid} = req.body.data;
      const id =  req.params.forumid;
     let forum;
     let user;
@@ -78,25 +72,23 @@ router.patch('/:forumid', async (req, res, next) => {
         forum = await Forum.findById(id);
         user = await User.findById(fid);
     } catch (error) {
-        const err =  new HttpError('Something went wrong counld not update the comment, please try later.',500)
-        return next(err)
+        res.status(500).json({message:'Something went wrong counld not update the comment, please try later..'});
     }
-    const fName = user.userName;
-
+    const forname = user.userName;
+    //console.log('forname',forname)
     const pushComment = {
-        fName:fName,
+        fName:forname,
         comment:comment,
         fid:fid
     }
-   // console.log(forum)
+    
     forum.comments.push(pushComment);
     try {
         await forum.save()
     } catch (error) {
-        const err =  new HttpError('Something went wrong counld not update the comment, please try later.',500)
-        return next(error);
+        res.status(500).json({message:'Something went wrong counld not update the comment, please try later.'});
     }
-    res.json({forum:forum.toObject({getters:true})} )
+    res.status(201).json({forum:forum.toObject({getters:true})} )
 })
 
 module.exports =  router;

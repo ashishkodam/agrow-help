@@ -1,3 +1,4 @@
+const { json } = require('body-parser');
 const express =  require('express');
 const router = express.Router();
 const HttpError = require('../models/http-error')
@@ -10,47 +11,55 @@ router.get('/',(req, res, next) =>{
     res.json({message: DUMMY_Users})
 });
 // router.get('/:uid', );
-router.get('/:uid', (req, res, next) =>{
+router.get('/:uid', async(req, res, next) =>{
     const userId =  req.params.uid;
 
-   const user =  DUMMY_Users.find(p =>{
-       return p.id ==  userId
-   });
+   
+
+   let user
+    try {
+         user = await User.findById(userId)
+    
+    } catch  {
+        const error =  new HttpError(
+            'Somingthing went wrong. Please try again',
+            500 
+        );
+        return next(error);  
+    }
 
    if(!user){
        throw new HttpError('Could not find user.',404);
    }
 
-   res.json({user:user} )
+   res.json({user:user.toObject({getters:true})} )
 }) ;
  
  router.post('/signup', async (req,res, next) => {
-    const { userName,email,role,password,} = req.body;
+    const { userName,email,role,password,} = req.body.data;
     let existingUser
     try {
          existingUser = await User.findOne({
             email:email
         })
     
-    } catch  {
+    } catch (err) {
         const error =  new HttpError(
             'Sign up failed. Please try again',
             500 
         );
-        return next(error);  
+        return next(err);  
     }
 
     if(existingUser){
-        const error = new HttpError(
-            'User exists already.',420
-        );
-        return next(error)
+
+        res.status(500).json({message:'User exists already.'})
     }
    
     const createUser =  new User({
         email,role,password,userName
     })
-    console.log(createUser)
+
     try{
         await createUser.save();
     }catch (err){
@@ -68,7 +77,7 @@ router.get('/:uid', (req, res, next) =>{
 
 router.post('/login', async (req,res, next) => {
     console.log(req.body)
-    const { email,password} = req.body;
+    const { email,password} = req.body.data;
 
     let identifiedUser
     try {
@@ -76,16 +85,16 @@ router.post('/login', async (req,res, next) => {
             email:email
         })
     
-    } catch  {
+    } catch (err) {
         const error =  new HttpError(
             'Login failed. Please try again',
             500 
         );
-        return next(error);  
+        return next(err);  
     }
 
     if(!identifiedUser || identifiedUser.password !==  password) return new HttpError('Email or password does not identified, try again',401)
-    res.json({message:identifiedUser})
+    res.status(201).json({message:identifiedUser.toObject({getters:true})} )
 });
 
 

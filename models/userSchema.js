@@ -16,7 +16,7 @@ const userschema = new schema({
             image: {data: Buffer, contentType: String,required:false},
             fName:{type:String,required:true},
             noOfDays:{ type:String,required:true},
-            quantity:{ type:String,required:true},
+            quantity:{ type:Number,required:true},
             fid:{type:ObjectId,required:true},
             toolid:{type:ObjectId,required:true}
         }
@@ -25,7 +25,7 @@ const userschema = new schema({
         {
             fName:{type:String,required:true},
             noOfDays:{ type:String,required:true},
-            quantity:{ type:String,required:true},
+            quantity:{ type:Number,required:true},
             toolName:{type:String, required:true},
             image: {data: Buffer, contentType: String,required:false},
             toolid:{type:ObjectId,required:true},

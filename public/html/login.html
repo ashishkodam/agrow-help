@@ -76,10 +76,33 @@ color: #26cf26;
 
   <script>
     function navToLogin() {
-//         const email = document.getElementById('inputEmail');
-//         const password =  document.getElementById('inputPassword');
-//         const rePassword = document.getElementById('inputRePassword');
-      location.replace("http://localhost:5000/dashbord.html")
+        const email = document.getElementById('inputEmail').value;
+        const password =  document.getElementById('inputPassword').value;
+         var req = new XMLHttpRequest();
+
+      var data = {
+        'email': email,
+        'password': password,
+      }
+      console.log(data)
+      req.open('POST', 'http://localhost:5000/api/users/login', true);
+      req.setRequestHeader('Content-type', 'application/json');
+      // Converting JSON data to string 
+      var json = JSON.stringify({ data });
+    req.send(json);
+      req.onload  = () => {
+    var data = JSON.parse(req.responseText)
+    if (req.readyState == 4 && req.status == "201") { 
+      localStorage.setItem('userDetails',JSON.stringify(data.message));
+      setTimeout(() => {
+        location.replace("http://localhost:5000/dashbord.html")
+      }, 2000);
+      
+    } else {
+       alert(data.message)
+    };
+    
+    }
     }
     </script>
 </body>

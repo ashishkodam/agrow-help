@@ -149,10 +149,10 @@ router.post('/accept', async(req,res,next) =>{
     let provider = [];
     provider= tool.provider;
     
-    ownerTools =  provider.find(p =>{ if (p.fid == myId) {
-        return p
-    } } )
-    ownerTools.quantity = ownerTools.quantity - quantity;
+    // ownerTools =  provider.find(p =>{ if (p.fid == myId) {
+    //     return p
+    // } } )
+    // ownerTools.quantity = ownerTools.quantity - quantity;
    
     
 
@@ -168,9 +168,53 @@ router.post('/accept', async(req,res,next) =>{
     owner.offeredTool.push(acceptTool);
 
   ///update pending requests
+ let ownerPr = owner.pendingRequest.find(pr => {
+      if(pr.toolid == toolid){
+          return pr;
+      }
+  })
+  let index = owner.pendingRequest.indexOf(ownerPr);
+  
+  if (index > -1) {
+    owner.pendingRequest.splice(index, index+1);
+    console.log("index",index,owner); 
+  }
+  
+
     try {
         await owner.save();
         await tool.save();
+    } catch (error) {
+        const err =  new HttpError('Something went wrong counld not update the comment, please try later.',500)
+        return next(error);
+    }
+    res.json({owners:owner.toObject({getters:true})} )
+})
+
+
+//reject the request
+router.post('/reject', async(req,res,next) =>{
+    const { toolid,myId} = req.body;
+    const owner = await User.findById(myId);
+
+    
+
+   
+    let ownerPr = owner.pendingRequest.find(pr => {
+        if(pr.toolid == toolid){
+            return pr;
+        }
+    })
+    let index = owner.pendingRequest.indexOf(ownerPr);
+    
+    if (index > -1) {
+      owner.pendingRequest.splice(index, index+1);
+      console.log("index",index,owner); 
+    }
+
+  ///update pending requests
+    try {
+        await owner.save();
     } catch (error) {
         const err =  new HttpError('Something went wrong counld not update the comment, please try later.',500)
         return next(error);

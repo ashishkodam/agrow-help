@@ -1,53 +1,123 @@
 const express =  require('express');
 const router = express.Router();
 const HttpError = require('../models/http-error')
+const Crop =  require('../models/cropSchema');
+const User =  require('../models/userSchema');
+
+//create Crop
 
 
-const DUMMY_Users = [
-    {
-        id:'1',
-        name:'ashish',
-        role:'2',
-        password:''
-    },
-    {
-        id:'2',
-        name:'kodam',
-        role:'1',
-        password:''
+router.post('/create',async(req,res,next) =>{
+    const {cName} = req.body;
+    const createCrop =  new Crop({
+       cName
+    })
+    try{
+        await createCrop.save();
+    }catch (err){
+        const error =  new HttpError(
+            'creating Crop failed, please try again.',
+            500 
+        );
+        return next(err);
+    }
+    res.json({crop:createCrop.toObject({getters:true})} )
+
+})
+
+
+
+//getAllCrops
+
+router.get('/',async(req, res, next) =>{
+    let allCrops;
+    try {
+        allCrops = await Crop.find();
+    } catch (err) {
+        const error =  new HttpError('Fetching crops failed, please try again later.',500);
+        return next(error)
+    }
+    res.json({allCrops:allCrops.map(f => f.toObject({ getters : true})) })
+    
+});
+
+
+//getcropsById
+router.get('/:id', async(req, res, next) =>{
+    const id =  req.params.id;
+    let crops
+    try {
+        crops = await Crop.findById(id);
+    } catch (error) {
+        return next(error)
     }
 
-]
-
-router.get('/',(req, res, next) =>{
-    console.log('Get Rrequest in plaxes');
-    res.json({message: 'It works!'})
-});
-// router.get('/:uid', );
-router.get('/:uid', (req, res, next) =>{
-    const userId =  req.params.uid;
-
-   const user =  DUMMY_Users.find(p =>{
-       return p.id ==  userId
-   });
-
-   if(!user){
-       throw new HttpError('Could not find user.',404);
+   if(!crops){
+       const error=   new HttpError('Could not find crops.',404);
+       return next(error0)
    }
 
-   res.json({user:user} )
+   res.json({crops:crops.toObject({getters:true})} )
 }) ;
 
-router.post('/',(req,res, next) =>{
-    const { name,role,password} = req.body;
 
-    const createUser = {
-        name,role,password
+//post details
+
+router.patch('/:cId', async (req, res, next) => {
+    const {description,fid,ferilizer,weather,waterTiming} = req.body;
+     const id =  req.params.cId;
+    let cropsDetails;
+    let user;
+    try {
+        cropsDetails = await Crop.findById(id);
+        user = await User.findById(fid);
+    } catch (error) {
+        const err =  new HttpError('Something went wrong counld not update the comment, please try later.',500)
+        return next(error)
     }
-    DUMMY_Users.push(createUser);
+    const fName = user.userName;
 
-    res.status(201).json({message:'Created Succesfully'})
+    const pushComment = {
+        fName:fName,
+        description:description,
+        fid:fid,
+        ferilizer:ferilizer,weather:weather,waterTiming:waterTiming,
+        like:0
+    }
+    console.log(cropsDetails)
+    cropsDetails.fInputs.push(pushComment);
+    try {
+        await cropsDetails.save()
+    } catch (error) {
+        const err =  new HttpError('Something went wrong counld not update the comment, please try later.',500)
+        return next(error);
+    }
+    res.json({cropsDetails:cropsDetails.toObject({getters:true})} )
 })
+
+
+router.post('/like', async (req, res, next) => {
+    const {cid,id} = req.body;
+    let cropsDetails;
+    try {
+        cropsDetails = await Crop.findById(cid);
+    } catch (error) {
+        const err =  new HttpError('Something went wrong counld not update the comment, please try later.',500)
+        return next(error)
+    }
+    
+    cropsDetails.fInputs.find(c => {if(c.id == id) return c.like = c.like +1});
+    console.log(cropsDetails)
+    try {
+        await cropsDetails.save()
+    } catch (error) {
+        const err =  new HttpError('Something went wrong counld not update the comment, please try later.',500)
+        return next(error);
+    }
+    res.json({cropsDetails:cropsDetails.toObject({getters:true})} )
+})
+
+
 
 
 
