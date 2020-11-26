@@ -85,10 +85,10 @@
       <img src="logo.svg" alt="image">
     </h5>
     <nav class="my-2 my-md-0 mr-md-3">
-      <a class="p-2 text-dark" href="dashbord.html"><b style="color: #28A745;">Crops</b></a>
-      <a class="p-2 text-dark" href="forum.html"><b style="color: #28A745;"> Forum </b></a>
-      <a class="p-2 text-dark" href="machinery-begg.html"> <b style="color: #28A745;">Machinery Help</b></a>
-      <a> <i class="fa fa-user" aria-hidden="true"></i></a>
+      <a class="p-2 text-dark" href="dashbord.html"><b style="color: #26cf26;">Crops</b></a>
+      <a class="p-2 text-dark" href="forum.html"><b style="color: #26cf26;"> Forum </b></a>
+      <a class="p-2 text-dark" href="machinery.html"> <b style="color: #26cf26;">Machinery Help</b></a>
+      <a onclick="logout()" title="Logot"> <i class="fa fa-user" aria-hidden="true"></i></a>
     </nav>
 
 
@@ -218,6 +218,11 @@
 
 
     })(document);
+
+    function logout() {
+      localStorage.clear()
+      location.replace("http://localhost:5000" );
+    }
 
     function postComment() {
               const comment = document.getElementById('commentPost').value;

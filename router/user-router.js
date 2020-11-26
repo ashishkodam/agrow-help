@@ -32,10 +32,11 @@ router.get('/:uid', async(req, res, next) =>{
        throw new HttpError('Could not find user.',404);
    }
 
-   res.json({user:user.toObject({getters:true})} )
+   res.status(201).json({user:user.toObject({getters:true})} )
 }) ;
  
  router.post('/signup', async (req,res, next) => {
+     
     const { userName,email,role,password,} = req.body.data;
     let existingUser
     try {

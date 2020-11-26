@@ -13,49 +13,70 @@
       .navbar-light .navbar-brand {
         color: white;
       }
-      .shadow-sm {
-      box-shadow: 0 .125rem .25rem rgba(0,0,0,.075)!important;
-  }
-    ::placeholder {
-    color: #28ec28;
-    opacity: 1; /* Firefox */
-    }
-
-    :-ms-input-placeholder { /* Internet Explorer 10-11 */
-    color: #28ec28;
-    }
-
-    ::-ms-input-placeholder { /* Microsoft Edge */
-    color: #28ec28;
-    }
-    
-  #cropType{
-      margin-right: 20px;
-  }
-  .buttons-margin{
-      margin: 0px 10%;
-  }
-
- a{
-      cursor: pointer;
-      color: #9e8516f5;
-  }
-
-  a:hover {
-      color: rgb(80, 80, 241);
-  }
-
-  a.text-dark:focus, a.text-dark:hover{
-color: #26cf26;
-}
-      /* .backgroundimage{
-        background-image: url("launch-page-1440.svg");
-        background-repeat: no-repeat;
-       height: 880px;
-      
-      } */
   
-     
+      .shadow-sm {
+        box-shadow: 0 .125rem .25rem rgba(0, 0, 0, .075) !important;
+      }
+  
+      ::placeholder {
+        color: #28ec28;
+        opacity: 1;
+        /* Firefox */
+      }
+  
+      :-ms-input-placeholder {
+        /* Internet Explorer 10-11 */
+        color: #28ec28;
+      }
+  
+      ::-ms-input-placeholder {
+        /* Microsoft Edge */
+        color: #28ec28;
+      }
+  
+      #cropType {
+        margin-right: 20px;
+      }
+  
+      .buttons-margin {
+        margin: 0px 10%;
+      }
+  
+      a {
+        cursor: pointer;
+        color: #9e8516f5;
+      }
+  
+      #commentCountStyle {
+        color: #9e8516f5;
+      }
+  
+      a:hover {
+        color: rgb(80, 80, 241);
+      }
+  
+      #hoveredBlue{
+        cursor: pointer;
+        color: #9e8516f5;
+      }
+      #hoveredBlue:hover{
+        cursor: pointer;
+        color: blue;
+      }
+  
+      .parent {
+        -moz-column-count: 2;
+        -moz-column-gap: 40%;
+        -webkit-column-count: 2;
+        -webkit-column-gap: 40%;
+        column-count: 2;
+        column-gap: 40%;
+      }
+  
+      a.text-dark:focus,
+      a.text-dark:hover {
+        color: #26cf26;
+      }
     </style>
    
 </head>
@@ -66,10 +87,10 @@ color: #26cf26;
       <img src="logo.svg" alt="image">
     </h5>
     <nav class="my-2 my-md-0 mr-md-3">
-      <a class="p-2 text-dark"  href="dashbord.html"><b style="color: #26cf26;">Crops</b></a>
-      <a class="p-2 text-dark"  href="forum1-begg.html"><b style="color: #26cf26;"> Forum </b></a>
-      <a class="p-2 text-dark"  href="machinery-begg.html"> <b style="color: #26cf26;">Machinery Help</b></a>
-      <a > <i class="fa fa-user" aria-hidden="true"></i></a>
+      <a class="p-2 text-dark" href="dashbord.html"><b style="color: #26cf26;">Crops</b></a>
+      <a class="p-2 text-dark" href="forum.html"><b style="color: #26cf26;"> Forum </b></a>
+      <a class="p-2 text-dark" href="machinery.html"> <b style="color: #26cf26;">Machinery Help</b></a>
+      <a onclick="logout()" title="Logot"> <i class="fa fa-user" aria-hidden="true"></i></a>
     </nav>
    
   </div>
@@ -80,57 +101,99 @@ color: #26cf26;
   <main role="main" class="" >
 <br>
 
-<h1 style="margin-left: 30px; color: #26cf26;font-family: Gill Sans Extrabold, sans-serif;"> <a  href="dashbord.html "> Crops </a> / Tobacco</h1>
+<h3 style="margin-left: 30px; color: #26cf26;font-family: Gill Sans Extrabold, sans-serif;" id="tooNameID"><a
+  href="dashbord.html"> Crops </a></h3>
     <div class="container" >
         <div class="my-3 p-3 bg-white rounded shadow-sm">
             <h6 class="border-bottom border-gray pb-2 mb-0">Recent updates</h6>
+           
             <div class="row">
-                <div class="col-md-11">
-                    <div class="media text-muted pt-3">
-             
-                        <p style="color: #9e8516f5;" style="color: #9e8516f5;" class="media-body pb-3 mb-0 small lh-125 border-bottom border-gray"  id="hoveredBlue"><a href="details.html" >
-                          Donec id elit non mi porta gravida at eget metus. Fusce dapibus, tellus ac cursus commodo, tortor mauris condimentum nibh, ut fermentum massa justo sit amet risus.
-                       </a> </p>
-                      </div>
-                      <div class="media text-muted pt-3">
-                        <p style="color: #9e8516f5;" class="media-body pb-3 mb-0 small lh-125 border-bottom border-gray"   id="hoveredBlue"><a href="details.html" >
-                          Donec id elit non mi porta gravida at eget metus. Fusce dapibus, tellus ac cursus commodo, tortor mauris condimentum nibh, ut fermentum massa justo sit amet risus.
-                        </a></p>
-                      </div>
-                      <div class="media text-muted pt-3">
-                        <p style="color: #9e8516f5;" class="media-body pb-3 mb-0 small lh-125 border-bottom border-gray"   id="hoveredBlue"><a href="details.html" >
-                          Donec id elit non mi porta gravida at eget metus. Fusce dapibus, tellus ac cursus commodo, tortor mauris condimentum nibh, ut fermentum massa justo sit amet risus.
-                        </a></p>
-                      </div>
+              <div class="col-md-10">
+                <div class=" text-muted pt-3" id="textDescrip"></div>
+    
+              </div>
+              <div class="col-md-2">
+                <div class=" text-muted pt-3" id="commentCount">
                 </div>
-                <div class="col-md-1">
-                    <div class="media text-muted pt-3">             
-                        <p style="color: #9e8516f5;" class="media-body pb-3 mb-0 small lh-125 border-bottom border-gray">
-                         100 Likes
-                        </p>
-                      </div>
-                      <div class="media text-muted pt-3">             
-                        <p style="color: #9e8516f5;" class="media-body pb-3 mb-0 small lh-125 border-bottom border-gray">
-                         50 Likes
-                        </p>
-                      </div>
-                      <div class="media text-muted pt-3">             
-                        <p style="color: #9e8516f5;" class="media-body pb-3 mb-0 small lh-125 border-bottom border-gray">
-                         10 Likes
-                        </p>
-                      </div>
-                </div>
+              </div>
             </div>          
           </div>
     </div>
   </main>
 
   <script>
-    function navToLogin() {
-//         const email = document.getElementById('inputEmail');
-//         const password =  document.getElementById('inputPassword');
-//         const rePassword = document.getElementById('inputRePassword');
-      location.replace("http://localhost:5000/dashbord.html")
+
+(function (document) {
+
+userDetails = JSON.parse(localStorage.getItem('userDetails'));
+console.log(userDetails);
+const urlParams = new URLSearchParams(window.location.search);
+myParam = urlParams.get('ID');
+var req = new XMLHttpRequest();
+let requestUrl = `${'http://localhost:5000/api/crops/'}${myParam}`
+req.open('GET', requestUrl, true);
+req.setRequestHeader('Content-type', 'application/json');
+
+req.send();
+req.onload = () => {
+  var data = JSON.parse(req.responseText)
+  if (req.readyState == 4 && req.status == "201") {
+    console.log(data)
+const forumData = data.crop;
+console.log(forumData)
+let title = document.getElementById('tooNameID')
+    let atag = document.createElement('a');
+    atag.style = "color: #26cf26"
+    atag.innerHTML = " / " + forumData.cName;
+    title.appendChild(atag)
+// document.getElementById('forunQuestion').innerHTML = forumData.question
+ forumData.fInputs.forEach(element => {
+  let divContainer =  document.createElement('div');
+            divContainer.className = 'col-md-12 pb-3  border-bottom border-gray';
+            divContainer.id = "hoveredBlue";
+            let newNode = document.createElement('h6');
+            newNode.onclick = function () {
+              navToforumDetais(element.id);
+            };
+            newNode.innerHTML = element.description.charAt(0).toUpperCase() + element.description.slice(1,100) + '....';
+            
+             divContainer.append(newNode)
+            //  let brElement = document.createElement('br')
+            //  divContainer.append(brElement)
+             document.getElementById('textDescrip').appendChild(divContainer);
+
+        
+             let divComment =  document.createElement('div');
+             divComment.className = "pb-3  border-bottom border-gray";
+             divComment.id = "commentCountStyle";
+            let commenttext = document.createElement('h6');
+            
+            commenttext.innerHTML = element.like + ' ' + 'likes';
+            divComment.append(commenttext)
+            document.getElementById('commentCount').appendChild(divComment);
+          })
+  } 
+  else {
+    console.log(data)
+
+    };
+
+}
+
+
+})(document);
+
+function logout() {
+      localStorage.clear()
+      location.replace("http://localhost:5000" );
+    }
+
+    function navToforumDetais(param) {
+
+// //         const email = document.getElementById('inputEmail');
+// //         const password =  document.getElementById('inputPassword');
+// //         const rePassword = document.getElementById('inputRePassword');
+       location.replace("http://localhost:5000/details.html?key1="+myParam +"&key2="+param)
     }
     </script>
 </body>

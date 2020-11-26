@@ -59,6 +59,15 @@
       color: rgb(80, 80, 241);
     }
 
+    #hoveredBlue{
+      cursor: pointer;
+      color: #9e8516f5;
+    }
+    #hoveredBlue:hover{
+      cursor: pointer;
+      color: blue;
+    }
+
     .parent {
       -moz-column-count: 2;
       -moz-column-gap: 40%;
@@ -72,6 +81,12 @@
     a.text-dark:hover {
       color: #26cf26;
     }
+    #myUL {
+      list-style-type: none;
+      display: none;
+      padding: 0;
+      margin: 0;
+    }
   </style>
 
 </head>
@@ -83,9 +98,9 @@
     </h5>
     <nav class="my-2 my-md-0 mr-md-3">
       <a class="p-2 text-dark" href="dashbord.html"><b style="color: #26cf26;">Crops</b></a>
-      <a class="p-2 text-dark" href="forum1-begg.html"><b style="color: #26cf26;"> Forum </b></a>
-      <a class="p-2 text-dark" href="machinery-begg.html"> <b style="color: #26cf26;">Machinery Help</b></a>
-      <a> <i class="fa fa-user" aria-hidden="true"></i></a>
+      <a class="p-2 text-dark" href="forum.html"><b style="color: #26cf26;"> Forum </b></a>
+      <a class="p-2 text-dark" href="machinery.html"> <b style="color: #26cf26;">Machinery Help</b></a>
+      <a onclick="logout()" title="Logot"> <i class="fa fa-user" aria-hidden="true"></i></a>
     </nav>
 
   </div>
@@ -101,8 +116,8 @@
         <div class=" p-3 col-md-7 ">
           <div class="p-1 bg-light rounded rounded-pill shadow-sm mb-4">
             <div class="input-group">
-              <input type="search" placeholder="Search for topic" aria-describedby="button-addon1"
-                class="form-control border-0 bg-light" style="color: #28ec28;width: 210px;">
+              <input type="search" placeholder="Search for topic" aria-describedby="button-addon1" id="InputbeginnerSearch"
+              onkeyup="beginnerSearchHandle()"  class="form-control border-0 bg-light" style="color: #28ec28;width: 210px;">
               <div class="input-group-append">
                 <button id="button-addon1" type="submit" class="btn btn-link text-success"><i class="fa fa-search"
                     aria-hidden="true" style="color: #28ec28;"></i></button>
@@ -142,15 +157,21 @@
     </div>
 
     <div class="container">
+
       <div class="my-3 p-3 bg-white rounded shadow-sm">
-        <h6 class="border-bottom border-gray pb-2 mb-0">Top Topics</h6>
+        <h4 class="border-bottom border-gray pb-2 mb-0">Search Topics</h4>
+        <div class="row"> <ul id="myUL"></ul></div>
+      </div>
+
+      <div class="my-3 p-3 bg-white rounded shadow-sm">
+        <h4 class="border-bottom border-gray pb-2 mb-0">Top Topics</h4>
         <div class="row">
           <div class="col-md-10">
-            <div class="media text-muted pt-3" id="textDescrip"></div>
+            <div class=" text-muted pt-3" id="textDescrip"></div>
 
           </div>
           <div class="col-md-2">
-            <div class="media text-muted pt-3" id="commentCount">
+            <div class=" text-muted pt-3" id="commentCount">
             </div>
           </div>
         </div>
@@ -174,28 +195,57 @@
         if (req.readyState == 4 && req.status == "201") {
           // console.log(data)
           const forumData = data.allQuestions;
-          forumData.forEach(element => {
-            let newNode = document.createElement('h6');
-            newNode.id = "hoveredBlue";
+          let ulElement = document.getElementById('myUL');
+          forumData.map(element => {
             
+            let liElement = document.createElement('li');
+            
+            
+            let anc = document.createElement('a');
+            anc.onclick = function () {
+              navToforumDetais(element.id);
+            };
+            let divSContainer =  document.createElement('div');
+            divSContainer.className = 'col-md-12 pb-3  ';
+            divSContainer.id = "hoveredBlue";
+            let SnewNode = document.createElement('h5');
+           
+            SnewNode.innerHTML = element.question.charAt(0).toUpperCase() + element.question.slice(1) + '<br>';
+            
+             divSContainer.append(SnewNode)
+             anc.append(divSContainer)
+            liElement.appendChild(anc);
+            ulElement.appendChild(liElement);
+            
+           
+
+            let divContainer =  document.createElement('div');
+            divContainer.className = 'col-md-12 pb-3  border-bottom border-gray';
+            divContainer.id = "hoveredBlue";
+            let newNode = document.createElement('h5');
             newNode.onclick = function () {
               navToforumDetais(element.id);
             };
-            newNode.innerHTML = element.question;
-           
-            document.getElementById('textDescrip').appendChild(newNode);
-            let brElement = document.createElement('br')
-            document.getElementById('commentCount').appendChild(brElement)
+            newNode.innerHTML = element.question.charAt(0).toUpperCase() + element.question.slice(1) + '<br>';
+            
+             divContainer.append(newNode)
+            //  let brElement = document.createElement('br')
+            //  divContainer.append(brElement)
+             document.getElementById('textDescrip').appendChild(divContainer);
 
-            let commenttext = document.createElement('p');
-            commenttext.className = 'media-body pb-3 mb-0 small lh-125 border-bottom border-gray';
-            commenttext.id = "commentCountStyle";
+        
+             let divComment =  document.createElement('div');
+             divComment.className = "pb-3  border-bottom border-gray";
+             divComment.id = "commentCountStyle";
+            let commenttext = document.createElement('h5');
+            
             commenttext.innerHTML = element.comments.length + ' ' + 'Commnets';
-            document.getElementById('commentCount').appendChild(commenttext);
+            divComment.append(commenttext)
+            document.getElementById('commentCount').appendChild(divComment);
 
            // document.getElementById('commentCount').appendChild('<br>')
           });
-
+          
 
         } else {
           alert(data.message)
@@ -214,6 +264,10 @@
        location.replace("http://localhost:5000/forum-details.html?id=" + params)
     }
 
+    function logout() {
+      localStorage.clear()
+      location.replace("http://localhost:5000" );
+    }
 
     function SubmitQuestion() {
       const question = document.getElementById('newQuestion').value;
@@ -242,6 +296,24 @@
     }
   
 
+    function beginnerSearchHandle() {
+      let ulElement = document.getElementById('myUL');
+      ulElement.style.display = "block";
+      var input, filter, ul, li, a, i, txtValue;
+        input = document.getElementById("InputbeginnerSearch");
+        filter = input.value.toUpperCase();
+        ul = document.getElementById("myUL");
+        li = ul.getElementsByTagName("li");
+        for (i = 0; i < li.length; i++) {
+          a = li[i].getElementsByTagName("a")[0];
+          txtValue = a.textContent || a.innerText;
+          if (txtValue.toUpperCase().indexOf(filter) > -1) {
+            li[i].style.display = "";
+          } else {
+            li[i].style.display = "none";
+          }
+        }
+    }
 
   </script>
 </body>
