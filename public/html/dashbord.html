@@ -8,47 +8,82 @@
   <link rel="icon" href="../seedling.svg" type="image/gif" sizes="16x16">
   <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@4.5.3/dist/css/bootstrap.min.css"
     integrity="sha384-TX8t27EcRE3e/ihU7zmQxVncDAy5uIKz4rEkgIXeMed4M0jlfIDPvg6uqKI2xXr2" crossorigin="anonymous">
-    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/font-awesome/4.7.0/css/font-awesome.min.css" integrity="sha384-wvfXpqpZZVQGK6TAh5PVlGOfQNHSoD2xbE+QkPxCAFlNEevoEH3Sl0sibVcOQVnN" crossorigin="anonymous">
-    <style>
-      .navbar-light .navbar-brand {
-        color: white;
-      }
-      .shadow-sm {
-      box-shadow: 0 .125rem .25rem rgba(0,0,0,.075)!important;
-  }
+  <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/font-awesome/4.7.0/css/font-awesome.min.css"
+    integrity="sha384-wvfXpqpZZVQGK6TAh5PVlGOfQNHSoD2xbE+QkPxCAFlNEevoEH3Sl0sibVcOQVnN" crossorigin="anonymous">
+  <style>
+    .navbar-light .navbar-brand {
+      color: white;
+    }
+
+    .shadow-sm {
+      box-shadow: 0 .125rem .25rem rgba(0, 0, 0, .075) !important;
+    }
+
     ::placeholder {
-    color: #28ec28;
-    opacity: 1; /* Firefox */
+      color: #28ec28;
+      opacity: 1;
+      /* Firefox */
     }
 
-    :-ms-input-placeholder { /* Internet Explorer 10-11 */
-    color: #28ec28;
+    :-ms-input-placeholder {
+      /* Internet Explorer 10-11 */
+      color: #28ec28;
     }
 
-    ::-ms-input-placeholder { /* Microsoft Edge */
-    color: #28ec28;
+    ::-ms-input-placeholder {
+      /* Microsoft Edge */
+      color: #28ec28;
     }
-    
-  #cropType{
+
+    #cropType {
       margin-right: 20px;
-  }
-  .buttons-margin{
-      margin: 0px 10%;
-  }
+    }
 
-  a.text-dark:focus, a.text-dark:hover{
-  color: #26cf26;
+    .buttons-margin {
+      margin: 0px 10%;
+    }
+
+    #myUL {
+      list-style-type: none;
+      display: none;
+      padding: 0;
+      margin: 0;
+    }
+
+    #myUL li a {
+      border: 1px solid #ddd;
+      margin-top: -1px; /* Prevent double borders */
+      background-color: #f6f6f6;
+      padding: 12px;
+      text-decoration: none;
+      font-size: 18px;
+      color: black;
+      display: block
+    }
+
+#myUL li a:hover:not(.header) {
+  background-color: #eee;
+}
+
+    a.text-dark:focus,
+    a.text-dark:hover {
+      color: #26cf26;
+    }
+
+    /* #Beg{
+    display: none;
   }
-      /* .backgroundimage{
+  #Exp{
+    display: none;
+  } */
+    /* .backgroundimage{
         background-image: url("launch-page-1440.svg");
         background-repeat: no-repeat;
        height: 880px;
       
       } */
-  
-     
-    </style>
-   
+  </style>
+
 </head>
 
 <body class="bg-light" data-new-gr-c-s-check-loaded="14.984.0" data-gr-ext-installed="">
@@ -57,64 +92,237 @@
       <img src="logo.svg" alt="image">
     </h5>
     <nav class="my-2 my-md-0 mr-md-3">
-      <a class="p-2 text-dark"  href="dashbord.html"><b style="color: #26cf26;">Crops</b></a>
-      <a class="p-2 text-dark"  href="forum1-begg.html"><b style="color: #26cf26;"> Forum </b></a>
-      <a class="p-2 text-dark"  href="machinery-begg.html"> <b style="color: #26cf26;">Machinery Help</b></a>
-      <a > <i class="fa fa-user" aria-hidden="true"></i></a>
+      <a class="p-2 text-dark" href="dashbord.html"><b style="color: #26cf26;">Crops</b></a>
+      <a class="p-2 text-dark" href="forum.html"><b style="color: #26cf26;"> Forum </b></a>
+      <a class="p-2 text-dark" href="machinery-begg.html"> <b style="color: #26cf26;">Machinery Help</b></a>
+      <a onclick="logout()" title="Logot"> <i class="fa fa-user" aria-hidden="true"></i></a>
     </nav>
-   
+
   </div>
- 
 
 
 
-  <main role="main" class="" >
-<br>
 
-<h1 style="margin-left: 30px; color: #26cf26;font-family: Gill Sans Extrabold, sans-serif;"> Crops</h1>
-    <div class="container" >
-        <div class="my-3 p-3 col-md-12 bg-white rounded shadow-sm">
-            <div class="container">
-                <div class="p-1 bg-light rounded rounded-pill shadow-sm mb-4">
-                    <div class="input-group">
-                      <input type="search" placeholder="What crop your searching for?" aria-describedby="button-addon1" class="form-control border-0 bg-light" style="color: #28ec28;">
-                      <div class="input-group-append">
-                        <button id="button-addon1" type="submit" class="btn btn-link text-success"><i class="fa fa-search" aria-hidden="true" style="color: #28ec28;"></i></button>
-                      </div>
-                    </div>
-                  </div>
-                  <div class="buttons-margin">
-                    <div class="row">
-                        <a class="btn btn-outline-success col-md-2" id="cropType" href="detailsList.html">Tobacco</a>
-                        <a class="btn btn-outline-success col-md-2" id="cropType" href="login.html">Cotton</a>
-                        <a class="btn btn-outline-success col-md-2" id="cropType" href="login.html">Grains</a>
-                        <a class="btn btn-outline-success col-md-2" id="cropType" href="login.html">Wheat</a>
-                        <a class="btn btn-outline-success col-md-2" id="cropType" href="login.html">Oats</a>
-                    </div>
-                    <br>
-                    <div class="buttons-margin">
-                        <a class="btn btn-outline-success col-md-2" id="cropType" href="login.html">Peas</a>
-                        <a class="btn btn-outline-success col-md-2" id="cropType" href="login.html">Potatoes</a>
-                        <a class="btn btn-outline-success col-md-2" id="cropType" href="login.html">Onions</a>
-                        <a class="btn btn-outline-success col-md-2" id="cropType" href="login.html">Sunfloowers</a>
-                    </div>
-                  </div>
-                  
+  <main role="main" class="">
+    <br>
+
+    <h1 style="margin-left: 30px; color: #26cf26;font-family: Gill Sans Extrabold, sans-serif;"> Crops</h1>
+    <div class="container">
+      <div class="my-3 p-3 col-md-12 bg-white rounded shadow-sm">
+        <div class="container">
+          <div class="p-1 bg-light rounded rounded-pill shadow-sm mb-4" id="Beg">
+            <div class="input-group">
+
+              <input type="search" placeholder="What crop your searching for?" id="InputbeginnerSearch"
+                onkeyup="beginnerSearchHandle()" aria-describedby="button-addon1" class="form-control border-0 bg-light"
+                style="color: #28ec28;">
+
+
+              <div class="input-group-append">
+                <button id="button-addon1" type="submit" class="btn btn-link text-success"><i class="fa fa-search"
+                    aria-hidden="true" style="color: #28ec28;"></i></button>
+              </div>
             </div>
-       
-            
+
           </div>
+          
+          <div class="p-1 bg-light rounded rounded-pill shadow-sm mb-4" id="Exp">
+            <div class="input-group">
+
+              <input type="search" placeholder="In which crop are you expertized?" id="InputESearch"
+              onkeyup="expSearchHandle()" aria-describedby="button-addon1"
+                class="form-control border-0 bg-light" style="color: #28ec28;">
+
+
+              <div class="input-group-append">
+                <button id="button-addon1" type="submit" class="btn btn-link text-success"><i class="fa fa-search"
+                    aria-hidden="true" style="color: #28ec28;"></i></button>
+              </div>
+            </div>
+
+          </div>
+          <ul id="myUL"></ul>
+          <div class="buttons-margin">
+            <div class="row" id="cropList">
+
+            </div>
+          </div>
+
+        </div>
+
+
+      </div>
     </div>
   </main>
 
   <script>
-    function navToLogin() {
-//         const email = document.getElementById('inputEmail');
-//         const password =  document.getElementById('inputPassword');
-//         const rePassword = document.getElementById('inputRePassword');
-      location.replace("http://localhost:5000/dashbord.html")
+    let userDetails;
+    let myParam, forumData;
+    (function (document) {
+
+      userDetails = JSON.parse(localStorage.getItem('userDetails'));
+      console.log(userDetails);
+      var exp = document.getElementById("Exp")
+      var beg = document.getElementById("Beg")
+      if (userDetails.role === "1") {
+        beg.style.display = "block";
+        document.getElementById('Exp').style.display = "none";
+      }
+      else {
+        exp.style.display = "block";
+        document.getElementById('Beg').style.display = "none";
+      }
+
+
+
+
+      var req = new XMLHttpRequest();
+      let requestUrl = `${'http://localhost:5000/api/crops/'}`
+      req.open('GET', requestUrl, true);
+      req.setRequestHeader('Content-type', 'application/json');
+
+      req.send();
+      req.onload = () => {
+        var data = JSON.parse(req.responseText)
+        if (req.readyState == 4 && req.status == "201") {
+          forumData = data.allCrops;
+          console.log(forumData);
+          let ulElement = document.getElementById('myUL');
+          forumData.forEach(element => {
+
+            
+            let liElement = document.createElement('li');
+            
+            
+            let anc = document.createElement('a');
+            anc.onclick = function () {
+              routingTool(element.id);
+            };
+            anc.innerHTML = element.cName.charAt(0).toUpperCase() + element.cName.slice(1);  
+            liElement.appendChild(anc);
+            ulElement.appendChild(liElement);
+           
+            let newNode = document.createElement('a');
+            newNode.id = "cropType";
+            newNode.className = "btn btn-outline-success col-md-2";
+            newNode.onclick = function () {
+              routingTool(element.id);
+            };
+            newNode.innerHTML = element.cName.charAt(0).toUpperCase() + element.cName.slice(1);
+
+            document.getElementById('cropList').appendChild(newNode);
+
+          });
+          if(userDetails.role === '2'){
+          let libutton = document.createElement('button');
+          libutton.onclick = function () {
+              createCropButtonHandle();
+            };
+            libutton.innerHTML = "Create";
+            ulElement.appendChild(libutton);
+          }
+        }
+        else {
+          console.log(data)
+
+        };
+
+      }
+
+
+    })(document);
+
+    function filterFunction() {
+      var input, filter, ul, li, a, i;
+      input = document.getElementById("myInput");
+      filter = input.value.toUpperCase();
+      div = document.getElementById("myDropdown");
+      a = div.getElementsByTagName("p");
+      for (i = 0; i < a.length; i++) {
+        txtValue = a[i].textContent || a[i].innerText;
+        if (txtValue.toUpperCase().indexOf(filter) > -1) {
+          a[i].style.display = "";
+        } else {
+          a[i].style.display = "none";
+        }
+      }
     }
-    </script>
+    function routingTool(params) {
+      if (userDetails.role === "1") {
+        location.replace("http://localhost:5000/detailsList.html?ID=" + params)
+      }
+      else {
+        location.replace("http://localhost:5000/details.html?ID=" + params)
+      }
+    }
+
+    function beginnerSearchHandle() {
+      let ulElement = document.getElementById('myUL');
+      ulElement.style.display = "block";
+      var input, filter, ul, li, a, i, txtValue;
+        input = document.getElementById("InputbeginnerSearch");
+        filter = input.value.toUpperCase();
+        ul = document.getElementById("myUL");
+        li = ul.getElementsByTagName("li");
+        for (i = 0; i < li.length; i++) {
+          a = li[i].getElementsByTagName("a")[0];
+          txtValue = a.textContent || a.innerText;
+          if (txtValue.toUpperCase().indexOf(filter) > -1) {
+            li[i].style.display = "";
+          } else {
+            li[i].style.display = "none";
+          }
+        }
+    }
+
+    function logout() {
+      localStorage.clear()
+      location.replace("http://localhost:5000" );
+    }
+    function expSearchHandle() {
+      let ulElement = document.getElementById('myUL');
+      ulElement.style.display = "block";
+     
+      
+      var input, filter, ul, li, a, i, txtValue;
+        input = document.getElementById("InputESearch");
+        filter = input.value.toUpperCase();
+        ul = document.getElementById("myUL");
+        li = ul.getElementsByTagName("li");
+        for (i = 0; i < li.length; i++) {
+          a = li[i].getElementsByTagName("a")[0];
+          txtValue = a.textContent || a.innerText;
+          if (txtValue.toUpperCase().indexOf(filter) > -1) {
+            li[i].style.display = "";
+          } else {
+            li[i].style.display = "none";
+          }
+        }
+    }
+
+
+    function createCropButtonHandle() {
+      let send={
+        'cName':document.getElementById('InputESearch').value
+      }
+      let req = new XMLHttpRequest();
+      let requestUrl = `${'http://localhost:5000/api/crops/create'}`
+      req.open('POST', requestUrl, true);
+      req.setRequestHeader('Content-type', 'application/json');
+      let json = JSON.stringify({ send });
+      req.send(json);
+      req.onload = () => {
+        let data = JSON.parse(req.responseText)
+        if (req.readyState == 4 && req.status == "201") {
+          console.log(data);
+          routingTool(data.crop.id)
+          //location.replace("http://localhost:5000/forum.html")
+            }else{
+                  alert(data.message)
+            }
+        }
+    }
+  </script>
 </body>
 
 </html>

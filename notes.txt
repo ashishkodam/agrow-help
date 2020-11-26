@@ -1,0 +1,92 @@
+API
+post
+api/crops/create {
+    id
+    name
+    farmersInput:[
+        {
+            fname:
+            description:
+            fartilizers:
+            watertiming:
+            weathercondion:
+            likes:
+        }
+    ]
+}
+
+get
+api/fourm [
+    {
+        id:
+        question:
+        comments:[
+            fname:
+            fcomment:
+        ]
+    }
+]
+
+get
+api/tools
+[
+    {
+        id 
+        name
+        providers:[
+            {
+                fid:
+                quantity
+                daysavalible:
+                price
+            }
+        ]
+    }
+]
+
+post
+api/tools/create
+{
+    id
+    name
+}
+patch by id
+api/tools{
+{
+        id 
+        name
+        providers:[
+            {
+                fid:
+                quantity
+                daysavalible:
+                price
+            }
+        ]
+    }
+}
+
+
+profile{
+    id
+    name
+    role
+    password
+    offeredtool:[
+        {
+            
+            toolname:
+            days:
+            fname:
+            nofquan
+
+        }
+    ]
+    rentrequest:[
+        {
+            fname
+            nofqant
+            days
+        }
+    ]
+}
