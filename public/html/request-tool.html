@@ -8,61 +8,73 @@
   <link rel="icon" href="../seedling.svg" type="image/gif" sizes="16x16">
   <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@4.5.3/dist/css/bootstrap.min.css"
     integrity="sha384-TX8t27EcRE3e/ihU7zmQxVncDAy5uIKz4rEkgIXeMed4M0jlfIDPvg6uqKI2xXr2" crossorigin="anonymous">
-    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/font-awesome/4.7.0/css/font-awesome.min.css" integrity="sha384-wvfXpqpZZVQGK6TAh5PVlGOfQNHSoD2xbE+QkPxCAFlNEevoEH3Sl0sibVcOQVnN" crossorigin="anonymous">
-    <style>
-      .navbar-light .navbar-brand {
-        color: white;
-      }
-      .shadow-sm {
-      box-shadow: 0 .125rem .25rem rgba(0,0,0,.075)!important;
-  }
+  <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/font-awesome/4.7.0/css/font-awesome.min.css"
+    integrity="sha384-wvfXpqpZZVQGK6TAh5PVlGOfQNHSoD2xbE+QkPxCAFlNEevoEH3Sl0sibVcOQVnN" crossorigin="anonymous">
+  <style>
+    .navbar-light .navbar-brand {
+      color: white;
+    }
+
+    .shadow-sm {
+      box-shadow: 0 .125rem .25rem rgba(0, 0, 0, .075) !important;
+    }
+
     ::placeholder {
-    color: #28ec28;
-    opacity: 1; /* Firefox */
+      color: #28ec28;
+      opacity: 1;
+      /* Firefox */
     }
 
-    :-ms-input-placeholder { /* Internet Explorer 10-11 */
-    color: #28ec28;
+    :-ms-input-placeholder {
+      /* Internet Explorer 10-11 */
+      color: #28ec28;
     }
 
-    ::-ms-input-placeholder { /* Microsoft Edge */
-    color: #28ec28;
+    ::-ms-input-placeholder {
+      /* Microsoft Edge */
+      color: #28ec28;
     }
-    
-  #cropType{
+
+    #cropType {
       margin-right: 20px;
-  }
-  .buttons-margin{
-      margin: 0px 10%;
-  }
+    }
 
-  a{
+    .buttons-margin {
+      margin: 0px 10%;
+    }
+
+    a {
       cursor: pointer;
       color: #9e8516f5;
-  }
+    }
 
-  a:hover {
+    a:hover {
       color: rgb(80, 80, 241);
-  }
-  .parent{
-    -moz-column-count: 2;
-    -moz-column-gap: 40%;
-    -webkit-column-count: 2;
-    -webkit-column-gap: 40%;
-    column-count: 2;
-    column-gap: 40%;
-}
-table th{
-    color: #9e8516f5
-}
-td{
-    color: #9e8516f5
-}
-a.text-dark:focus, a.text-dark:hover{
-color: #26cf26;
-}
-    </style>
-   
+    }
+
+    .parent {
+      -moz-column-count: 2;
+      -moz-column-gap: 40%;
+      -webkit-column-count: 2;
+      -webkit-column-gap: 40%;
+      column-count: 2;
+      column-gap: 40%;
+    }
+
+    table th {
+      color: #9e8516f5
+    }
+
+    td {
+      color: #9e8516f5
+    }
+
+    a.text-dark:focus,
+    a.text-dark:hover {
+      color: #26cf26;
+    }
+  </style>
+
 </head>
 
 <body class="bg-light" data-new-gr-c-s-check-loaded="14.984.0" data-gr-ext-installed="">
@@ -71,106 +83,239 @@ color: #26cf26;
       <img src="logo.svg" alt="image">
     </h5>
     <nav class="my-2 my-md-0 mr-md-3">
-        <a class="p-2 text-dark"  href="dashbord.html"><b style="color: #26cf26;">Crops</b></a>
-        <a class="p-2 text-dark"  href="forum1-begg.html"><b style="color: #26cf26;"> Forum </b></a>
-        <a class="p-2 text-dark"  href="machinery-begg.html"> <b style="color: #26cf26;">Machinery Help</b></a>
-        <a > <i class="fa fa-user" aria-hidden="true"></i></a>
+      <a class="p-2 text-dark" href="dashbord.html"><b style="color: #26cf26;">Crops</b></a>
+      <a class="p-2 text-dark" href="forum.html"><b style="color: #26cf26;"> Forum </b></a>
+      <a class="p-2 text-dark" href="machinery.html"> <b style="color: #26cf26;">Machinery Help</b></a>
+      <a href="profile.html"> <i class="fa fa-user" aria-hidden="true"></i></a>
     </nav>
-   
+
   </div>
- 
 
 
 
-<main role="main" class="" >
-<br>
-<div class="parent">
-    <h1 style="margin-left: 30px; color: #26cf26;font-family: Gill Sans Extrabold, sans-serif;"><a href="machinery-begg.html">Machinery Help  </a>/ Tool 1</h1>
-                <button class="btn btn-lg btn-success btn-block" style="width: 200px;margin-left: 40%;" data-toggle="tooltip" data-placement="bottom" title="Add Question" >Offer a tool</button>
-</div>
 
-    <div class="container-fluid" >
-        <div class="my-2 p-3 bg-white rounded shadow-sm">
-            <h6 style="color: #9e8516f5" class="border-bottom border-gray pb-2 mb-0">Select the tool requied</h6>
-            <br>
-            <table class="table">
-                <thead>
-                  <tr>
-                    <th scope="col">Owner</th>
-                    <th scope="col">Quantity Available</th>
-                    <th scope="col">Price</th>
-                    <th scope="col">Quantity Request</th>                    
-                    <th scope="col">Action</th>
-                  </tr>
-                </thead>
-                <tbody>
-                  <tr>
-                    <th scope="row">Owner 1</th>
-                    <td>5</td>
-                    <td>60$</td>
-                    <td>
-                    <div class="btn-group mr-2" role="group" aria-label="Second group">
-                        <button type="button" class="btn btn-secondary">+</button>
-                        <input type="text" class="form-control" placeholder="Quantity" style="margin: 0px 5px;" aria-label="Username" aria-describedby="basic-addon1">
-                        <button type="button" class="btn btn-secondary">-</button>
-                      </div>
-                    </td>
-                    <td>  <button class="btn  btn-success btn-block col-md-5"  onclick="navToLogin()">Request</button></td>
+  <main role="main" class="">
+    <br>
+    <div class="parent">
+      <h3 style="margin-left: 30px; color: #26cf26;font-family: Gill Sans Extrabold, sans-serif;" id="tooNameID"><a
+          href="machinery.html">Machinery Help</a></h3>
 
-                  </tr>
-                  <tr>
-                    <th scope="row"> Owner 2</th>
-                    <td>5</td>
-                    <td>60$</td>
-                    <td>
-                        <div class="btn-group mr-2" role="group" aria-label="Second group">
-                            <button type="button" class="btn btn-secondary">+</button>
-                            <input type="text" class="form-control" placeholder="Quantity" style="margin: 0px 5px;" aria-label="Username" aria-describedby="basic-addon1">
-                            <button type="button" class="btn btn-secondary">-</button>
-                          </div>
-                    </td>
-                    <td>  <button class="btn  btn-success btn-block col-md-5"  onclick="navToLogin()">Request</button></td>
-                  </tr>
-                  <tr>
-                    <th scope="row"> Owner 3</th>
-                    <td>5</td>
-                    <td>60$</td>
-                    <td>
-                        <div class="btn-group mr-2" role="group" aria-label="Second group">
-                            <button type="button" class="btn btn-secondary">+</button>
-                            <input type="text" class="form-control" placeholder="Quantity" style="margin: 0px 5px;" aria-label="Username" aria-describedby="basic-addon1">
-                            <button type="button" class="btn btn-secondary">-</button>
-                          </div>
-                    </td>
-                    <td>  <button class="btn  btn-success btn-block col-md-5"  onclick="navToLogin()">Request</button></td>
-                  </tr>
-                  <tr>
-                    <th scope="row"> Owner 4</th>
-                    <td>5</td>
-                    <td>60$</td>
-                    <td>
-                        <div class="btn-group mr-2" role="group" aria-label="Second group">
-                            <button type="button" class="btn btn-secondary">+</button>
-                            <input type="text" class="form-control" placeholder="Quantity" style="margin: 0px 5px;" aria-label="Username" aria-describedby="basic-addon1">
-                            <button type="button" class="btn btn-secondary">-</button>
-                          </div>
-                    </td>
-                    <td>  <button class="btn  btn-success btn-block col-md-5"  onclick="navToLogin()">Request</button></td>
-                  </tr>
-                </tbody>
-              </table>    
-          </div>
+    </div>
+
+    <div class="container-fluid">
+      <div class="my-2 p-3 bg-white rounded shadow-sm">
+        <h6 style="color: #9e8516f5" class="border-bottom border-gray pb-2 mb-0">Select the tool requied</h6>
+        <br>
+        <div id="tableVIew">
+
+        </div>
+
+        <!-- <div class="btn-group mr-2" role="group" aria-label="Second group">
+          <button type="button" class="btn btn-secondary">+</button>
+          <input type="text" class="form-control" placeholder="Quantity" style="margin: 0px 5px;"
+            aria-label="Username" aria-describedby="basic-addon1">
+          <button type="button" class="btn btn-secondary">-</button>
+        </div>
+      </td>
+      <td> <button class="btn  btn-success btn-block col-md-5" onclick="navToLogin()">Request</button></td> -->
+      
+      </div>
     </div>
   </main>
 
   <script>
-    function navToLogin() {
-//         const email = document.getElementById('inputEmail');
-//         const password =  document.getElementById('inputPassword');
-//         const rePassword = document.getElementById('inputRePassword');
-      location.replace("http://localhost:5000/dashbord.html")
+
+    let userDetails;
+    let myParam
+    (function (document) {
+      const urlParams = new URLSearchParams(window.location.search);
+      myParam = urlParams.get('id');
+      console.log(myParam);
+      userDetails = JSON.parse(localStorage.getItem('userDetails'));
+      console.log(userDetails);
+
+      var req = new XMLHttpRequest();
+      let requestUrl = `${'http://localhost:5000/api/tools/'}${myParam}`
+      req.open('GET', requestUrl, true);
+      req.setRequestHeader('Content-type', 'application/json');
+
+      req.send();
+      req.onload = () => {
+        var data = JSON.parse(req.responseText)
+        if (req.readyState == 4 && req.status == "201") {
+          console.log(data);
+
+          const toolsData = data.tool;
+          let title = document.getElementById('tooNameID')
+          let atag = document.createElement('a');
+          atag.style = "color: #26cf26"
+          atag.innerHTML = " / " + toolsData.toolName;
+          title.appendChild(atag)
+
+          const tbl = document.createElement("table");
+          tbl.className = 'table';
+          const tblhead = document.createElement("thead");
+          let hRow = document.createElement('tr');
+            const ownerElement = document.createElement('th');
+            const quanElement = document.createElement('th');
+            const priceElement = document.createElement('th');
+            const daysElement = document.createElement('th');
+            const reqestElement = document.createElement('th');  
+            const actionElement = document.createElement('th');
+            
+            ownerElement.innerHTML  = "Owner";
+            quanElement.innerHTML   = "Quanity Available";
+            priceElement.innerHTML  = "Price per unit";
+            daysElement.innerHTML   = "Email"
+            reqestElement.innerHTML = "Quantity Request";
+            actionElement.innerHTML = "Action"
+
+            hRow.appendChild(ownerElement);
+            hRow.appendChild(quanElement);
+            hRow.appendChild(priceElement);
+            hRow.appendChild(daysElement);
+            hRow.appendChild(reqestElement);
+            hRow.appendChild(actionElement);
+          tblhead.appendChild(hRow)
+          const tblBody = document.createElement("tbody");
+          let row ;
+            
+          toolsData.provider.map(t => {
+            row = document.createElement('tr');
+            
+
+            const thElement = document.createElement('td');
+            const tdquan = document.createElement('td');
+            const price = document.createElement('td');
+            const days = document.createElement('td');
+            const request = document.createElement('td');
+            
+            const tdAccept = document.createElement('td');
+            // const tdReject = document.createElement('td');
+            const buttonAc = document.createElement('button');
+            buttonAc.type = 'button';
+            buttonAc.className = 'btn btn-outline-success btn-sm';
+            const getId =  document.getElementById(t.id);
+            const getQId= document.getAnimations('q' +t.id )
+            buttonAc.onclick = function () {
+              requestHandle(t.fid,t.id);
+            };
+
+            buttonAc.innerHTML = 'Request';
+            // const buttonRj = document.createElement('button');
+            // buttonRj.type = 'button';
+            // buttonRj.className = 'btn btn-outline-danger btn-sm';
+
+
+            // buttonRj.onclick = function () {
+            //   buttonRejectHandle(t.toolid);
+            // };
+
+
+            // buttonRj.innerHTML = 'Rejects';
+
+           
+            thElement.innerHTML =  t.fName.charAt(0).toUpperCase() + t.fName.slice(1);
+            tdquan.innerHTML = t.quantity ;
+            price.innerHTML = t.price;
+            let inputDiv = document.createElement('div');
+             inputDiv.className="input-group";
+                let inputElement = document.createElement('input');
+                  inputElement.type= 'text';
+                  inputElement.id= 'd'+ t.id;
+                  inputElement.placeholder= 'Enter User Email ';
+                  inputElement.className="form-control border-0 bg-light";
+                  inputElement.style = "color: #28A745;";
+              inputDiv.appendChild(inputElement);
+            days.appendChild(inputDiv)
+              let inputQuan = document.createElement('div');
+              inputQuan.className="input-group";
+                let inputQuElement = document.createElement('input');
+                  inputQuElement.type= 'number';
+                  inputQuElement.id= 'q'+ t.id;
+                  inputQuElement.placeholder= 'Enter quanity required';
+                  inputQuElement.className="form-control border-0 bg-light";
+                  inputQuElement.style = "color: #28A745;";
+              inputQuan.appendChild(inputQuElement);
+            request.appendChild(inputQuan)
+            tdAccept.appendChild(buttonAc);
+            // tdReject.appendChild(buttonRj);
+            // // row.appendChild(thElement);
+           
+            
+
+
+           
+
+            
+            row.appendChild(thElement);
+            row.appendChild(tdquan);
+            row.appendChild(price);
+            
+            row.appendChild(days);
+            row.appendChild(request);
+            row.appendChild(tdAccept);
+            tblBody.appendChild(row)
+          })
+         
+          tbl.appendChild(tblhead)
+          tbl.appendChild(tblBody);
+          document.getElementById("tableVIew").appendChild(tbl);
+        }
+        else {
+          console.log(data)
+
+        };
+
+      }
+
+    })(document);
+
+    function routingTool(params) {
+      location.replace("http://localhost:5000/request-tool.html?id=" + params)
     }
-    </script>
+
+    function requestHandle(params,getId) {
+     
+      const fid = userDetails.id;
+      const quantity = document.getElementById('q'+ getId).value;
+      const daysAvalible = document.getElementById('d'+ getId).value;
+      console.log(daysAvalible,quantity);
+
+      let data = {
+        'toolid': myParam,
+        "owenid":params,
+        'quantity': quantity,
+        'noOfDays': daysAvalible,
+        'fid': fid,
+      }
+      console.log(data)
+      let req = new XMLHttpRequest();
+      let requestUrl = `${'http://localhost:5000/api/tools/request'}`
+      req.open('POST', requestUrl, true);
+      req.setRequestHeader('Content-type', 'application/json');
+      let json = JSON.stringify({ data });
+      req.send(json);
+      req.onload = () => {
+        let data = JSON.parse(req.responseText)
+        if (req.readyState == 4 && req.status == "201") {
+          document.getElementById('q'+ getId).value ="";
+       document.getElementById('d'+ getId).value ="";
+          alert(data.message);
+          
+        } else {
+          alert(data)
+        }
+      }
+
+
+    }
+    function logout() {
+      localStorage.clear()
+      location.replace("http://localhost:5000" );
+    }
+
+</script>
 </body>
 
 </html>

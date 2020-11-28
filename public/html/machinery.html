@@ -1,0 +1,356 @@
+<!doctype html>
+<html>
+
+<head>
+  <title>Agrow Help</title>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <link rel="icon" href="../seedling.svg" type="image/gif" sizes="16x16">
+  <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@4.5.3/dist/css/bootstrap.min.css"
+    integrity="sha384-TX8t27EcRE3e/ihU7zmQxVncDAy5uIKz4rEkgIXeMed4M0jlfIDPvg6uqKI2xXr2" crossorigin="anonymous">
+  <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/font-awesome/4.7.0/css/font-awesome.min.css"
+    integrity="sha384-wvfXpqpZZVQGK6TAh5PVlGOfQNHSoD2xbE+QkPxCAFlNEevoEH3Sl0sibVcOQVnN" crossorigin="anonymous">
+  <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.4.1/css/bootstrap.min.css">
+  <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
+  <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.4.1/js/bootstrap.min.js"></script>
+  <style>
+    .navbar-light .navbar-brand {
+      color: white;
+    }
+
+    .shadow-sm {
+      box-shadow: 0 .125rem .25rem rgba(0, 0, 0, .075) !important;
+    }
+
+    ::placeholder {
+      color: #28ec28;
+      opacity: 1;
+      /* Firefox */
+    }
+
+    :-ms-input-placeholder {
+      /* Internet Explorer 10-11 */
+      color: #28ec28;
+    }
+
+    ::-ms-input-placeholder {
+      /* Microsoft Edge */
+      color: #28ec28;
+    }
+
+    #cropType {
+      margin-right: 20px;
+    }
+
+    .buttons-margin {
+      margin: 0px 10%;
+    }
+
+    a {
+      cursor: pointer;
+      color: #9e8516f5;
+    }
+
+    
+
+
+
+    a:hover {
+      color: rgb(80, 80, 241);
+    }
+
+    #imageStyling{
+      height: 225px; width: 100%; display: block;
+      padding: 5px;
+    }
+
+    .parent {
+      -moz-column-count: 2;
+      -moz-column-gap: 40%;
+      -webkit-column-count: 2;
+      -webkit-column-gap: 40%;
+      column-count: 2;
+      column-gap: 40%;
+    }
+
+    a.text-dark:focus,
+    a.text-dark:hover {
+      color: #26cf26;
+    }
+  </style>
+
+</head>
+
+<body class="bg-light" data-new-gr-c-s-check-loaded="14.984.0" data-gr-ext-installed="">
+  <div class="d-flex flex-column flex-md-row align-items-center p-3 px-md-4 bg-white border-bottom shadow-sm">
+    <h5 class="my-0 mr-md-auto font-weight-normal logo">
+      <img src="logo.svg" alt="image">
+    </h5>
+    <nav class="my-2 my-md-0 mr-md-3">
+      <a class="p-2 text-dark" href="dashbord.html"><b style="color: #26cf26;">Crops</b></a>
+      <a class="p-2 text-dark" href="forum.html"><b style="color: #26cf26;"> Forum </b></a>
+      <a class="p-2 text-dark" href="machinery.html"> <b style="color: #26cf26;">Machinery Help</b></a>
+      <a href="profile.html"> <i class="fa fa-user" aria-hidden="true"></i></a>
+    </nav>
+
+  </div>
+
+
+
+
+  <main role="main" class="">
+    <br>
+    <div class="row">
+      <div class="col-md-7">
+        <h1 style="margin-left: 30px; color: #26cf26;font-family: Gill Sans Extrabold, sans-serif;"> Machinery </h1>
+      </div>
+      <div class="col-md-5" style="left: 10%;">
+        <div class="row">
+          <div class="col-md-4">
+            <button class="btn  btn-warning  btn-block" data-toggle="modal" data-target=".bd-example-modal-lg">Offer a
+              tool</button>
+            
+          </div>
+          <div class="col-md-4">
+            <a href="manage-tools.html"><button class="btn  btn-success btn-block" > Manage Request </button></a>
+          </div>
+
+        </div>
+
+      </div>
+    </div>
+
+
+    <div class="modal fade bd-example-modal-lg" tabindex="-1" role="dialog" aria-labelledby="myLargeModalLabel"
+      aria-hidden="true">
+      <div class="modal-dialog modal-lg">
+        <div class="modal-content">
+          <div class="modal-header">
+            <h5 class="modal-title" id="exampleModalLongTitle">Submit Tool</h5>
+            <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+              <span aria-hidden="true">&times;</span>
+            </button>
+          </div>
+          <div class="modal-body">
+            <div class="container">
+              <div class="row">
+                <div class="col-md-4">
+                  <div class="input-group">
+                    <input type="text" placeholder="Tool Name" aria-describedby="button-addon1"
+                      class="form-control border-0 bg-light" style="color: #28A745;" id="newTool">
+
+                  </div>
+                </div>
+                <div class="col-md-4">
+                  <input type="number" placeholder="Quantity Offered " aria-describedby="button-addon1"
+                    class="form-control border-0 bg-light" style="color: #28A745;" id="quantity">
+                </div>
+              </div>
+              <BR>
+              
+                <div class="col-md-4">
+                  <input type="text" placeholder="Price Per 1 unit" aria-describedby="button-addon1"
+                    class="form-control border-0 bg-light" style="color: #28A745;" id="price">
+               
+              </div>
+            </div>
+          </div>
+          <div class="modal-footer">
+            <button type="button" class="btn btn-secondary" data-dismiss="modal">Close</button>
+            <button type="button" class="btn  btn-success " onclick="OfferToolHandel()">Submit</button>
+          </div>
+        </div>
+      </div>
+    </div>
+
+
+    <div class="container-fluid">
+      <div class="my-2 p-3 bg-white rounded shadow-sm" id="beginerShow">
+        <h3 style=" color: #9e8516f5;" class="border-bottom border-gray pb-2 mb-0">Select the tool requied</h3>
+        <br>
+        <div class="container-fluid">
+          <div class="row"  id="cardTools">
+         
+          </div>
+        </div>
+        
+      </div>
+    </div>
+  </main>
+
+  <script>
+
+    let userDetails;
+    let myParam
+    (function (document) {
+
+      userDetails = JSON.parse(localStorage.getItem('userDetails'));
+      console.log(userDetails);
+      
+        var req = new XMLHttpRequest();
+        let requestUrl = `${'http://localhost:5000/api/tools'}`
+        req.open('GET', requestUrl, true);
+        req.setRequestHeader('Content-type', 'application/json');
+
+        req.send();
+        req.onload = () => {
+          var data = JSON.parse(req.responseText)
+          if (req.readyState == 4 && req.status == "201") {
+            console.log(data);
+
+             const toolsData = data.allTools;
+
+             toolsData.forEach(element => {
+               let newNode = document.createElement('div');
+                newNode.className = "col-md-3";
+                let nextDiv = document.createElement('div');
+                 nextDiv.className ="card mb-3 box-shadow";
+                 let image = document.createElement('img');
+                   image.alt="Thumbnail [100%x225]";
+                   image.id="imageStyling";
+                   const imgsrc = "./NOIMAGE.png"
+                   image.src= imgsrc;
+                    let cardBody = document.createElement('div');
+                     cardBody.className = 'card-body';
+                     let toolNameElement = document.createElement('h4')
+                      toolNameElement.className = "card-title";
+                      let atag = document.createElement('a')
+                      atag.style="color:rgb(80, 80, 241)"
+                      atag.onclick = function () {
+                           routingTool(element.id);
+                      };
+                      atag.innerHTML= element.toolName.charAt(0).toUpperCase() + element.toolName.slice(1);
+                      let divcardsubtitle =  document.createElement('div');
+                       divcardsubtitle.className="card-subtitle";
+                       let pElement = document.createElement('p');
+                        pElement.className = "card-text";
+                        pElement.innerHTML = " Number of Venders " + element.provider.length;
+                      divcardsubtitle.appendChild(pElement);
+                      toolNameElement.appendChild(atag);
+                      cardBody.appendChild(toolNameElement);
+                    cardBody.appendChild(divcardsubtitle);
+                    
+                nextDiv.appendChild(image);
+                nextDiv.appendChild(cardBody);
+              newNode.appendChild(nextDiv);
+              document.getElementById('cardTools').appendChild(newNode);
+             });
+
+          }
+          else {
+            console.log(data)
+
+          };
+
+        }
+
+     
+       
+    })(document);
+
+    function logout() {
+      localStorage.clear()
+      location.replace("http://localhost:5000" );
+    }
+
+    function routingTool(params) {
+      location.replace("http://localhost:5000/request-tool.html?id=" + params)
+    }
+
+    function OfferToolHandel() {
+      const fid = userDetails.id;
+
+      const toolName = document.getElementById('newTool').value;
+      const quantity = document.getElementById('quantity').value;
+      const price = document.getElementById('price').value;
+
+
+      let data = {
+        'toolName': toolName,
+        'fid': fid,
+        'quantity':quantity,
+        'price':price
+      }
+      console.log(data)
+      let req = new XMLHttpRequest();
+      let requestUrl = `${'http://localhost:5000/api/tools/create'}`
+      req.open('PATCH', requestUrl, true);
+      req.setRequestHeader('Content-type', 'application/json');
+      let json = JSON.stringify({ data });
+      req.send(json);
+      req.onload = () => {
+        let data = JSON.parse(req.responseText)
+        if (req.readyState == 4 && req.status == "201") {
+           document.getElementById('newTool').value;
+      document.getElementById('quantity').value;
+       document.getElementById('price').value;
+          alert(data.message)
+        } else {
+          alert(data.message)
+        }
+      }
+
+
+    }
+
+
+    function buttonRejectHandle(toolid) {
+      const fid = userDetails.id;
+
+      let data = {
+        'toolid': toolid,
+        'myId': fid,
+      }
+
+      let req = new XMLHttpRequest();
+      let requestUrl = `${'http://localhost:5000/api/tools/reject'}`
+      req.open('POST', requestUrl, true);
+      req.setRequestHeader('Content-type', 'application/json');
+      let json = JSON.stringify({ data });
+      req.send(json);
+      req.onload = () => {
+        let data = JSON.parse(req.responseText)
+        if (req.readyState == 4 && req.status == "201") {
+          //alert(data.message)
+          location.replace("http://localhost:5000/machinery.html")
+        } else {
+          alert(data.message)
+        }
+      }
+
+    }
+
+    function buttonAcceptHandle(toolid, quantity, noOfDays, requestid) {
+
+      const fid = userDetails.id;
+
+      let data = {
+        'toolid': toolid,
+        'quantity': quantity,
+        'noOfDays': noOfDays,
+        'requestid': requestid,
+        'myId': fid,
+      }
+
+      let req = new XMLHttpRequest();
+      let requestUrl = `${'http://localhost:5000/api/tools/accept'}`
+      req.open('POST', requestUrl, true);
+      req.setRequestHeader('Content-type', 'application/json');
+      let json = JSON.stringify({ data });
+      req.send(json);
+      req.onload = () => {
+        let data = JSON.parse(req.responseText)
+        if (req.readyState == 4 && req.status == "201") {
+          //alert(data.message)
+          location.replace("http://localhost:5000/machinery.html")
+        } else {
+          alert(data.message)
+        }
+      }
+
+
+    }
+  </script>
+</body>
+
+</html>
