@@ -83,7 +83,7 @@ router.get('/:id', async(req, res, next) =>{
 //post details
 
 router.patch('/:cId', async (req, res, next) => {
-    const {description,fid,ferilizer,weather,waterTiming} = req.body;
+    const {description,fid,ferilizer,weather,waterTiming} = req.body.data;
      const id =  req.params.cId;
     let cropsDetails;
     let user;
@@ -103,15 +103,26 @@ router.patch('/:cId', async (req, res, next) => {
         ferilizer:ferilizer,weather:weather,waterTiming:waterTiming,
         like:0
     }
-    console.log(cropsDetails)
+    // console.log(cropsDetails)
+
+    const cropProvide = {
+        description:description,
+        ferilizer:ferilizer,
+        weather:weather,waterTiming:waterTiming,
+        cName:cropsDetails.cName,
+        cid:id
+    }
+
+    user.cropsDetails.push(cropProvide)
     cropsDetails.fInputs.push(pushComment);
     try {
-        await cropsDetails.save()
+        await cropsDetails.save();
+        await user.save();
     } catch (error) {
         const err =  new HttpError('Something went wrong counld not update the comment, please try later.',500)
         return next(error);
     }
-    res.status(201).json({cropsDetails:cropsDetails.toObject({getters:true})} )
+    res.status(201).json({message:'Succesfully Posted'} )
 })
 
 

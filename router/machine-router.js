@@ -8,9 +8,10 @@ const User = require('../models/userSchema');
 
 
 router.patch('/create', async (req, res, next) => {
-    const { toolName, fid, quantity, daysAvalible, price } = req.body.data;
+    let { toolName, fid, quantity, price } = req.body.data;
+    console.log(req.body.data)
     let user;
-    let fName
+    let fName;
     try {
         user = await User.findById(fid);
         fName = user.userName;
@@ -18,7 +19,7 @@ router.patch('/create', async (req, res, next) => {
         res.status(401).json({ message: error })
     }
 
-
+    toolName =  toolName.charAt(0).toUpperCase() + toolName.slice(1);;
     let existingTool
     try {
         existingTool = await Tool.findOne({
@@ -32,6 +33,7 @@ router.patch('/create', async (req, res, next) => {
         );
         return next(error);
     }
+    
 
     if (!existingTool) {
 
@@ -52,13 +54,21 @@ router.patch('/create', async (req, res, next) => {
         fName: fName,
         quantity: quantity,
         fid: fid,
-        daysAvalible: daysAvalible,
         price: price,
     }
-
+    const provided = {
+        toolName:toolName,
+        quantity: quantity,
+        price: price,
+        toolid:existingTool.id,
+        
+    }
+    await user.postedTools.push(provided)
     await existingTool.provider.push(pushTool);
+    //console.log(user)
     try {
-        await existingTool.save()
+        await existingTool.save();
+        await user.save();
     } catch (error) {
         const err = new HttpError('Something went wrong counld not update the comment, please try later.', 500)
         return next(error);
@@ -66,6 +76,64 @@ router.patch('/create', async (req, res, next) => {
     res.status(201).json({ message: 'Succesfully submited' })
 })
 
+
+router.patch('/update', async (req, res, next) => {
+    let {  fid, price,toolName,quantity, toolId,postedTools } = req.body.data;
+    let user;
+    let updatetool;
+    try {
+        user = await User.findById(fid);
+        updatetool = await Tool.findById(toolId);
+    } catch (error) {
+        res.status(500).json({ message: error })
+    }
+
+
+    const pushTool = {
+        fName: user.userName,
+        quantity: Number(quantity),
+        fid: fid,
+        price: price,
+    }
+
+    
+   
+    try {
+         await  updatetool.provider.find(t=>{
+             console.log(t.fid == fid)
+             if(t.fid == fid){
+                 t.fName = user.userName;
+                 t.quantity = quantity;
+                 t.fid = fid;
+                 t.price =  price;
+                 
+             }
+         }
+        )
+
+    } catch (err) {
+        console.log(err)
+        res.status(500).json({ message: 'Something went wrong while updating. Please try later.' })
+    }
+    
+
+    try {
+        user.postedTools =  postedTools
+   } catch {
+       res.status(500).json({ message: 'Something went wrong while updating. Please try later.' })
+   }
+
+   console.log('tool', updatetool)
+
+    try {
+        await updatetool.save();
+        await user.save();
+    } catch (error) {
+        const err = new HttpError('Something went wrong counld not update the comment, please try later.', 500)
+        return next(error);
+    }
+    res.status(201).json({ message: 'Succesfully submited' })
+})
 
 
 //getAllTools

@@ -61,7 +61,10 @@
       column-count: 2;
       column-gap: 40%;
     }
-    p{font-size: 16px;}
+
+    p {
+      font-size: 16px;
+    }
 
     a.text-dark:focus,
     a.text-dark:hover {
@@ -80,7 +83,7 @@
       <a class="p-2 text-dark" href="dashbord.html"><b style="color: #26cf26;">Crops</b></a>
       <a class="p-2 text-dark" href="forum.html"><b style="color: #26cf26;"> Forum </b></a>
       <a class="p-2 text-dark" href="machinery.html"> <b style="color: #26cf26;">Machinery Help</b></a>
-      <a onclick="logout()" title="Logot"> <i class="fa fa-user" aria-hidden="true"></i></a>
+      <a href="profile.html"> <i class="fa fa-user" aria-hidden="true"></i></a>
     </nav>
 
   </div>
@@ -92,35 +95,37 @@
     <br>
 
     <h3 style="margin-left: 30px; color: #26cf26;font-family: Gill Sans Extrabold, sans-serif;" id="tooNameID"><a
-      href="dashbord.html"> Crops </a></h3>
+        href="dashbord.html"> Crops </a></h3>
     <div class="container">
       <div class="my-3 p-3 bg-white rounded shadow-sm" id="Beg">
         <br>
         <div class="container">
           <H2 style="color: #26cf26;" id="descriptionID">Description</H2>
 
-          
+
           <H2 style="color: #26cf26;" id="fertilizerId"> Fertilizer</H2>
-          
+
           <br>
           <div class="parent">
             <div>
               <H2 style="color: #26cf26;" id="weaterId"> Weather Condition </H2>
-              
+
             </div>
             <div>
-              <H2 style="color: #26cf26;" id="waterId"> Water Timings   </H2>
-              
+              <H2 style="color: #26cf26;" id="waterId"> Water Timings </H2>
+
             </div>
           </div>
 
         </div>
         <br>
         <div class="btn-group" style="float: right;">
-          <button type="button" class="btn btn-sm btn-success btn-outline-secondary" onclick="submitLike()">Like</button>
-          <button type="button" class="btn btn-sm btn-warning btn-outline-secondary" onclick="submitdisLike()">Dislike</button>
+          <button type="button" class="btn btn-sm btn-success btn-outline-secondary"
+            onclick="submitLike()">Like</button>
+          <button type="button" class="btn btn-sm btn-warning btn-outline-secondary"
+            onclick="submitdisLike()">Dislike</button>
         </div>
-       
+
       </div>
 
       <div class="my-3 p-3 bg-white rounded shadow-sm" id="Exp">
@@ -145,33 +150,34 @@
                 <input type="search" placeholder="Enter the Water Timings" aria-describedby="button-addon1"
                   class="form-control border-0 bg-light" style="color: #28ec28;" id="newWater">
               </div>
-              </div>
-
             </div>
-          </div>
-          <br>
-          <div align="right">
-
-            <button class="btn  btn-warning btn-block col-md-2" data-toggle="tooltip" data-placement="bottom" align="left" onclick="submitInputs()">Submit </button>
 
           </div>
-         
         </div>
+        <br>
+        <div align="right">
+
+          <button class="btn  btn-warning btn-block col-md-2" data-toggle="tooltip" data-placement="bottom" align="left"
+            onclick="submitInputs()">Submit </button>
+
+        </div>
+
       </div>
+    </div>
   </main>
 
   <script>
     let userDetails;
-    let myParam, abc= [];
+    let myParam, abc = [];
     (function (document) {
 
       userDetails = JSON.parse(localStorage.getItem('userDetails'));
       console.log(userDetails);
       const urlParams = new URLSearchParams(window.location.search);
-    
-      for(var value of urlParams.values()) {
- abc.push(value);
-}
+
+      for (var value of urlParams.values()) {
+        abc.push(value);
+      }
       myParam = abc[0];
       console.log(myParam)
       var exp = document.getElementById("Exp");
@@ -185,11 +191,11 @@
         document.getElementById('Beg').style.display = "none";
       }
 
-     
+
 
 
       var req = new XMLHttpRequest();
-      
+
       let requestUrl = userDetails.role === '1' ? `${'http://localhost:5000/api/crops/'}${myParam}` : `${'http://localhost:5000/api/crops/'}${myParam}`
       req.open('GET', requestUrl, true);
       req.setRequestHeader('Content-type', 'application/json');
@@ -199,54 +205,54 @@
         var data = JSON.parse(req.responseText)
         if (req.readyState == 4 && req.status == "201") {
           console.log(data)
-      const forumData = data.crop;
-      console.log(forumData)
-      let title = document.getElementById('tooNameID')
+          const forumData = data.crop;
+          console.log(forumData)
+          let title = document.getElementById('tooNameID')
           let atag = document.createElement('a');
           atag.style = "color: #26cf26"
           atag.innerHTML = " / " + forumData.cName;
           title.appendChild(atag)
-      // document.getElementById('forunQuestion').innerHTML = forumData.question
-       forumData.fInputs.forEach(element => {
-         if(element.id=== abc[1]){
-           let newNode = document.createElement('p');
-          
-           
-           newNode.style="color: #9e8516f5;";
-           newNode.innerHTML = element.description;
-           document.getElementById('descriptionID').appendChild(newNode);
-           let pFert = document.createElement('p');
-           pFert.style="color: #9e8516f5;";
-           pFert.innerHTML = element.ferilizer;
-           document.getElementById('fertilizerId').appendChild(pFert);
-           let pWeather =document.createElement('p');
-           pWeather.style="color: #9e8516f5;";
-           pWeather.innerHTML = element.weather;
-           document.getElementById('weaterId').appendChild(pWeather);
-           let pwater = document.createElement('p');
-           pwater.style="color: #9e8516f5;";
-           pwater.innerHTML = element.waterTiming;
-           document.getElementById('waterId').appendChild(pwater);
+          // document.getElementById('forunQuestion').innerHTML = forumData.question
+          forumData.fInputs.forEach(element => {
+            if (element.id === abc[1]) {
+              let newNode = document.createElement('p');
 
-         }
-      //   let newNode = document.createElement('h4');
-      //   newNode.id = "fnameColor";
-      //   newNode.innerHTML = element.fName.charAt(0).toUpperCase() + element.fName.slice(1);
-      //   let divContainer =  document.createElement('div');
-      //   divContainer.className = 'container';
-      //   let fInput = document.createElement('p');
-      //   fInput.id='fInputColor';
-      //   fInput.innerHTML = element.comment
-      //    divContainer.append(fInput)
-      //    document.getElementById('fInputDetails').appendChild(newNode);
-      //    document.getElementById('fInputDetails').appendChild(divContainer);
-      });
 
-        } 
+              newNode.style = "color: #9e8516f5;";
+              newNode.innerHTML = element.description;
+              document.getElementById('descriptionID').appendChild(newNode);
+              let pFert = document.createElement('p');
+              pFert.style = "color: #9e8516f5;";
+              pFert.innerHTML = element.ferilizer;
+              document.getElementById('fertilizerId').appendChild(pFert);
+              let pWeather = document.createElement('p');
+              pWeather.style = "color: #9e8516f5;";
+              pWeather.innerHTML = element.weather;
+              document.getElementById('weaterId').appendChild(pWeather);
+              let pwater = document.createElement('p');
+              pwater.style = "color: #9e8516f5;";
+              pwater.innerHTML = element.waterTiming;
+              document.getElementById('waterId').appendChild(pwater);
+
+            }
+            //   let newNode = document.createElement('h4');
+            //   newNode.id = "fnameColor";
+            //   newNode.innerHTML = element.fName.charAt(0).toUpperCase() + element.fName.slice(1);
+            //   let divContainer =  document.createElement('div');
+            //   divContainer.className = 'container';
+            //   let fInput = document.createElement('p');
+            //   fInput.id='fInputColor';
+            //   fInput.innerHTML = element.comment
+            //    divContainer.append(fInput)
+            //    document.getElementById('fInputDetails').appendChild(newNode);
+            //    document.getElementById('fInputDetails').appendChild(divContainer);
+          });
+
+        }
         else {
           console.log(data)
 
-          };
+        };
 
       }
 
@@ -254,44 +260,50 @@
     })(document);
     function logout() {
       localStorage.clear()
-      location.replace("http://localhost:5000" );
+      location.replace("http://localhost:5000");
     }
     function submitInputs() {
-              const description = document.getElementById('newdescription');
-              const ferilizer =  document.getElementById('newFertilizer');
-              const weather = document.getElementById('newweather');
-              const waterTiming = document.getElementById('newWater');
-      
-              const fid = userDetails.id;
-              let data = {
-                'description': description,
-                'fid': fid,
-                'ferilizer':ferilizer,
-                'weather':weather,
-                'waterTiming':waterTiming
-              }
-              let req = new XMLHttpRequest();
-              let requestUrl = `${'http://localhost:5000/api/crops/'}${myParam}`
-              req.open('PATCH', requestUrl, true);
-              req.setRequestHeader('Content-type', 'application/json');
-              let json = JSON.stringify({ data });
-              req.send(json);
-              req.onload = () => {
-                let data = JSON.parse(req.responseText)
-                if (req.readyState == 4 && req.status == "201") {
-                  console.log(data)
-                  // location.replace("http://localhost:5000/forum-details.html?id=" + myParam)
-                }else{
-                  aler(data.message)
-                }
-              }
+      const description = document.getElementById('newdescription').value;
+      const ferilizer = document.getElementById('newFertilizer').value;
+      const weather = document.getElementById('newweather').value;
+      const waterTiming = document.getElementById('newWater').value;
+
+      const fid = userDetails.id;
+      let data = {
+        'description': description,
+        'fid': fid,
+        'ferilizer': ferilizer,
+        'weather': weather,
+        'waterTiming': waterTiming
+      }
+      console.log(data)
+
+      let req = new XMLHttpRequest();
+      let requestUrl = `${'http://localhost:5000/api/crops/'}${myParam}`
+      req.open('PATCH', requestUrl, true);
+      req.setRequestHeader('Content-type', 'application/json');
+      let json = JSON.stringify({ data });
+      req.send(json);
+      req.onload = () => {
+        let data = JSON.parse(req.responseText)
+        if (req.readyState == 4 && req.status == "201") {
+          document.getElementById('newdescription').value = '';
+          document.getElementById('newFertilizer').value = '';
+          document.getElementById('newweather').value = '';
+          document.getElementById('newWater').value = '';
+          alert(data.message)
+          // location.replace("http://localhost:5000/forum-details.html?id=" + myParam)
+        } else {
+          aler(data.message)
+        }
+      }
     }
 
     function submitLike() {
 
-      let data={
-        'cid':abc[0],
-        'Fiid':abc[1]
+      let data = {
+        'cid': abc[0],
+        'Fiid': abc[1]
       }
       console.log(data);
       let req = new XMLHttpRequest();
@@ -304,34 +316,34 @@
         let data = JSON.parse(req.responseText)
         if (req.readyState == 4 && req.status == "201") {
           alert(data.message)
-            }else{
-                  alert(data.message)
-            }
+        } else {
+          alert(data.message)
         }
+      }
     }
 
     function submitdisLike() {
 
-let data={
-  'cid':abc[0],
-  'Fiid':abc[1]
-}
-console.log(data);
-let req = new XMLHttpRequest();
-let requestUrl = `${'http://localhost:5000/api/crops/dislike'}`
-req.open('POST', requestUrl, true);
-req.setRequestHeader('Content-type', 'application/json');
-let json = JSON.stringify({ data });
-req.send(json);
-req.onload = () => {
-  let data = JSON.parse(req.responseText)
-  if (req.readyState == 4 && req.status == "201") {
-    alert(data.message)
-      }else{
-            alert(data.message)
+      let data = {
+        'cid': abc[0],
+        'Fiid': abc[1]
       }
-  }
-}
+      console.log(data);
+      let req = new XMLHttpRequest();
+      let requestUrl = `${'http://localhost:5000/api/crops/dislike'}`
+      req.open('POST', requestUrl, true);
+      req.setRequestHeader('Content-type', 'application/json');
+      let json = JSON.stringify({ data });
+      req.send(json);
+      req.onload = () => {
+        let data = JSON.parse(req.responseText)
+        if (req.readyState == 4 && req.status == "201") {
+          alert(data.message)
+        } else {
+          alert(data.message)
+        }
+      }
+    }
 
   </script>
 </body>

@@ -86,7 +86,7 @@
       <a class="p-2 text-dark" href="dashbord.html"><b style="color: #26cf26;">Crops</b></a>
       <a class="p-2 text-dark" href="forum.html"><b style="color: #26cf26;"> Forum </b></a>
       <a class="p-2 text-dark" href="machinery.html"> <b style="color: #26cf26;">Machinery Help</b></a>
-      <a onclick="logout()" title="Logot"> <i class="fa fa-user" aria-hidden="true"></i></a>
+      <a href="profile.html"> <i class="fa fa-user" aria-hidden="true"></i></a>
     </nav>
 
   </div>
@@ -159,23 +159,20 @@
             const ownerElement = document.createElement('th');
             const quanElement = document.createElement('th');
             const priceElement = document.createElement('th');
-            const daysAvalible = document.createElement('th');
             const daysElement = document.createElement('th');
             const reqestElement = document.createElement('th');  
             const actionElement = document.createElement('th');
             
             ownerElement.innerHTML  = "Owner";
             quanElement.innerHTML   = "Quanity Available";
-            priceElement.innerHTML  = "Price";
-            daysAvalible.innerHTML  = "Days Avalible"
-            daysElement.innerHTML   = "Days Required"
+            priceElement.innerHTML  = "Price per unit";
+            daysElement.innerHTML   = "Email"
             reqestElement.innerHTML = "Quantity Request";
             actionElement.innerHTML = "Action"
 
             hRow.appendChild(ownerElement);
             hRow.appendChild(quanElement);
             hRow.appendChild(priceElement);
-            hRow.appendChild(daysAvalible);
             hRow.appendChild(daysElement);
             hRow.appendChild(reqestElement);
             hRow.appendChild(actionElement);
@@ -190,7 +187,6 @@
             const thElement = document.createElement('td');
             const tdquan = document.createElement('td');
             const price = document.createElement('td');
-            const daysavb = document.createElement('td');
             const days = document.createElement('td');
             const request = document.createElement('td');
             
@@ -222,13 +218,12 @@
             thElement.innerHTML =  t.fName.charAt(0).toUpperCase() + t.fName.slice(1);
             tdquan.innerHTML = t.quantity ;
             price.innerHTML = t.price;
-            daysavb.innerHTML =  t.daysAvalible
             let inputDiv = document.createElement('div');
              inputDiv.className="input-group";
                 let inputElement = document.createElement('input');
                   inputElement.type= 'text';
                   inputElement.id= 'd'+ t.id;
-                  inputElement.placeholder= 'Enter No of days required';
+                  inputElement.placeholder= 'Enter User Email ';
                   inputElement.className="form-control border-0 bg-light";
                   inputElement.style = "color: #28A745;";
               inputDiv.appendChild(inputElement);
@@ -256,7 +251,7 @@
             row.appendChild(thElement);
             row.appendChild(tdquan);
             row.appendChild(price);
-            row.appendChild(daysavb);
+            
             row.appendChild(days);
             row.appendChild(request);
             row.appendChild(tdAccept);

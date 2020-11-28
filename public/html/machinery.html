@@ -90,7 +90,7 @@
       <a class="p-2 text-dark" href="dashbord.html"><b style="color: #26cf26;">Crops</b></a>
       <a class="p-2 text-dark" href="forum.html"><b style="color: #26cf26;"> Forum </b></a>
       <a class="p-2 text-dark" href="machinery.html"> <b style="color: #26cf26;">Machinery Help</b></a>
-      <a onclick="logout()" title="Logot"> <i class="fa fa-user" aria-hidden="true"></i></a>
+      <a href="profile.html"> <i class="fa fa-user" aria-hidden="true"></i></a>
     </nav>
 
   </div>
@@ -147,15 +147,11 @@
                 </div>
               </div>
               <BR>
-              <div class="row">
+              
                 <div class="col-md-4">
-                  <input type="text" placeholder="No Of Days " aria-describedby="button-addon1"
-                    class="form-control border-0 bg-light" style="color: #28A745;" id="daysAvalible">
-                </div>
-                <div class="col-md-4">
-                  <input type="text" placeholder="Price" aria-describedby="button-addon1"
+                  <input type="text" placeholder="Price Per 1 unit" aria-describedby="button-addon1"
                     class="form-control border-0 bg-light" style="color: #28A745;" id="price">
-                </div>
+               
               </div>
             </div>
           </div>
@@ -266,7 +262,6 @@
 
       const toolName = document.getElementById('newTool').value;
       const quantity = document.getElementById('quantity').value;
-      const daysAvalible = document.getElementById('daysAvalible').value;
       const price = document.getElementById('price').value;
 
 
@@ -274,7 +269,6 @@
         'toolName': toolName,
         'fid': fid,
         'quantity':quantity,
-        'daysAvalible':daysAvalible,
         'price':price
       }
       console.log(data)
@@ -287,6 +281,9 @@
       req.onload = () => {
         let data = JSON.parse(req.responseText)
         if (req.readyState == 4 && req.status == "201") {
+           document.getElementById('newTool').value;
+      document.getElementById('quantity').value;
+       document.getElementById('price').value;
           alert(data.message)
         } else {
           alert(data.message)

@@ -89,4 +89,41 @@ profile{
             days
         }
     ]
+    postedtool:[
+        {
+            
+            toolname:
+            nofquan:
+            price:
+            tid
+
+        }
+    ]
+
+    cropsDetails[
+        {
+            cName
+            cid
+            description
+            weathercondion
+            watertiming
+            fartilizers
+
+        }
+    ]
+    requestMessage[
+        {
+            fname
+            fid
+            message
+        }
+    ]
+    
 }
+
+Machinery help is not working..crop search is not working….change beginning to beginner…..give appropriate images to the tools……change the name in forums from post your comment to post your input……similarly change post your in comment to post your comment…..machinery tool think of the date and should come with nice and neat idea...
+In machine tool mention price(one per quantituy)
+Think of the contacting the other person when renting the tools ask with Dr. Hamilton
+
+I think it would nice, if the requester can send a form to the owner of the tool with his contact number so that they can contact each other and the owner can speak to them and they can coordinate each other, if the owner likes to give it to them he can rent it out else no….
+

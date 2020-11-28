@@ -94,8 +94,8 @@
     <nav class="my-2 my-md-0 mr-md-3">
       <a class="p-2 text-dark" href="dashbord.html"><b style="color: #26cf26;">Crops</b></a>
       <a class="p-2 text-dark" href="forum.html"><b style="color: #26cf26;"> Forum </b></a>
-      <a class="p-2 text-dark" href="machinery-begg.html"> <b style="color: #26cf26;">Machinery Help</b></a>
-      <a onclick="logout()" title="Logot"> <i class="fa fa-user" aria-hidden="true"></i></a>
+      <a class="p-2 text-dark" href="machinery.html"> <b style="color: #26cf26;">Machinery Help</b></a>
+      <a href="profile.html"> <i class="fa fa-user" aria-hidden="true"></i></a>
     </nav>
 
   </div>
@@ -201,6 +201,8 @@
             anc.innerHTML = element.cName.charAt(0).toUpperCase() + element.cName.slice(1);  
             liElement.appendChild(anc);
             ulElement.appendChild(liElement);
+            
+
            
             let newNode = document.createElement('a');
             newNode.id = "cropType";
@@ -213,6 +215,7 @@
             document.getElementById('cropList').appendChild(newNode);
 
           });
+          
           if(userDetails.role === '2'){
           let libutton = document.createElement('button');
           libutton.onclick = function () {

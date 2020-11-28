@@ -15,7 +15,7 @@ const userschema = new schema({
             toolName:{type:String, required:true},
             image: {data: Buffer, contentType: String,required:false},
             fName:{type:String,required:true},
-            noOfDays:{ type:String,required:true},
+            noOfDays:{ type:String,required:false},
             quantity:{ type:Number,required:true},
             fid:{type:ObjectId,required:true},
             toolid:{type:ObjectId,required:true}
@@ -24,14 +24,41 @@ const userschema = new schema({
     pendingRequest:[
         {
             fName:{type:String,required:true},
-            noOfDays:{ type:String,required:true},
+            noOfDays:{ type:String,required:false},
             quantity:{ type:Number,required:true},
             toolName:{type:String, required:true},
             image: {data: Buffer, contentType: String,required:false},
             toolid:{type:ObjectId,required:true},
             fid:{type:ObjectId,required:true}
         }
+    ],
+    postedTools:[
+        {
+            price:{type:String,required:true},
+            toolName:{type:String, required:true},
+            image: {data: Buffer, contentType: String,required:false},
+            quantity:{ type:Number,required:true},
+            toolid:{type:ObjectId,required:true},
+        }
+    ],
+    cropsDetails:[
+        {
+            description:{type:String,required:true},
+            ferilizer:{type:String,required: true},
+            weather:{type:String,required: true},
+            waterTiming:{type:String,required: true},
+            cName:{type:String,required:true},
+            cid:{type:ObjectId,required:true}
+        }
+    ],
+    requestMessage:[
+        {
+            fName:{type:String,required:true},
+            fid:{type:ObjectId,required:true},
+            message:{type:String,required:true}
+        }
     ]
+    
     
 }) 
 userschema.plugin(validater);

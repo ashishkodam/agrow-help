@@ -90,7 +90,7 @@ table th{
       <a class="p-2 text-dark" href="dashbord.html"><b style="color: #26cf26;">Crops</b></a>
       <a class="p-2 text-dark" href="forum.html"><b style="color: #26cf26;"> Forum </b></a>
       <a class="p-2 text-dark" href="machinery.html"> <b style="color: #26cf26;">Machinery Help</b></a>
-      <a onclick="logout()" title="Logot"> <i class="fa fa-user" aria-hidden="true"></i></a>
+      <a href="profile.html"> <i class="fa fa-user" aria-hidden="true"></i></a>
     </nav>
 
   </div>
@@ -231,7 +231,7 @@ table th{
 
           thElement.innerHTML = "Tool Name" + " : " + data.toolName.charAt(0).toUpperCase() + data.toolName.slice(1);
           tdTName.innerHTML = "Farmer Name" + " : " + data.fName.charAt(0).toUpperCase() + data.fName.slice(1);
-          tdnoDay.innerHTML = data.noOfDays + " " + " days required";
+          tdnoDay.innerHTML = data.noOfDays + " " + " Email";
           tdquan.innerHTML = data.quantity + " " + " quantity required";
           tdAccept.appendChild(buttonAc);
           tdReject.appendChild(buttonRj);
@@ -268,7 +268,7 @@ table th{
 
           th.innerHTML = "Tool Name" + " : " + data.toolName.charAt(0).toUpperCase() + data.toolName.slice(1);
           tdTNameElement.innerHTML = "Farmer Name" + " : " + data.fName.charAt(0).toUpperCase() + data.fName.slice(1);
-          tdnoDayElement.innerHTML = data.noOfDays + " " + " days ";
+          tdnoDayElement.innerHTML = data.noOfDays + " " + " email ";
           tdquanElement.innerHTML = data.quantity + " " + " quantity ";
           trElement.appendChild(th);
           trElement.appendChild(tdTNameElement);
