@@ -71,8 +71,23 @@
 
     a.text-dark:focus,
     a.text-dark:hover {
-      color: #26cf26;
+      color: #00B01D;
     }
+
+    @media only screen and (min-width: 992px) {
+        .backgroundimage{
+        background-image: url("background-page-1520.svg");
+        background-repeat: no-repeat;      
+      }
+      }
+      @media only screen and (min-width: 1200px) {
+        .backgroundimage {
+          background-image: url("background-page-1520.svg");
+          background-repeat: no-repeat;
+          height: 640px;
+  
+        }
+      }
   </style>
 
 </head>
@@ -83,9 +98,9 @@
       <img src="logo.svg" alt="image">
     </h5>
     <nav class="my-2 my-md-0 mr-md-3">
-      <a class="p-2 text-dark" href="dashbord.html"><b style="color: #26cf26;">Crops</b></a>
-      <a class="p-2 text-dark" href="forum.html"><b style="color: #26cf26;"> Forum </b></a>
-      <a class="p-2 text-dark" href="machinery.html"> <b style="color: #26cf26;">Machinery Help</b></a>
+      <a class="p-2 text-dark" href="dashbord.html"><b style="color: #00B01D;">Crops</b></a>
+      <a class="p-2 text-dark" href="forum.html"><b style="color: #00B01D;"> Forum </b></a>
+      <a class="p-2 text-dark" href="machinery.html"> <b style="color: #00B01D;">Machinery Help</b></a>
       <a href="profile.html"> <i class="fa fa-user" aria-hidden="true"></i></a>
     </nav>
 
@@ -94,10 +109,10 @@
 
 
 
-  <main role="main" class="">
+  <main role="main" class="backgroundimage">
     <br>
     <div class="parent">
-      <h3 style="margin-left: 30px; color: #26cf26;font-family: Gill Sans Extrabold, sans-serif;" id="tooNameID"><a
+      <h3 style="margin-left: 30px; color: #00B01D;font-family: Gill Sans Extrabold, sans-serif;" id="tooNameID"><a
           href="machinery.html">Machinery Help</a></h3>
 
     </div>
@@ -148,7 +163,7 @@
           const toolsData = data.tool;
           let title = document.getElementById('tooNameID')
           let atag = document.createElement('a');
-          atag.style = "color: #26cf26"
+          atag.style = "color: #00B01D"
           atag.innerHTML = " / " + toolsData.toolName;
           title.appendChild(atag)
 
@@ -225,7 +240,7 @@
                   inputElement.id= 'd'+ t.id;
                   inputElement.placeholder= 'Enter User Email ';
                   inputElement.className="form-control border-0 bg-light";
-                  inputElement.style = "color: #28A745;";
+                  inputElement.style = "color: #00B01D;";
               inputDiv.appendChild(inputElement);
             days.appendChild(inputDiv)
               let inputQuan = document.createElement('div');
@@ -235,7 +250,7 @@
                   inputQuElement.id= 'q'+ t.id;
                   inputQuElement.placeholder= 'Enter quanity required';
                   inputQuElement.className="form-control border-0 bg-light";
-                  inputQuElement.style = "color: #28A745;";
+                  inputQuElement.style = "color: #00B01D;";
               inputQuan.appendChild(inputQuElement);
             request.appendChild(inputQuan)
             tdAccept.appendChild(buttonAc);

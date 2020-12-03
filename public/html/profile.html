@@ -81,8 +81,23 @@
 
     a.text-dark:focus,
     a.text-dark:hover {
-      color: #26cf26;
+      color: #00B01D;
     }
+
+    @media only screen and (min-width: 992px) {
+        .backgroundimage{
+        background-image: url("background-page-1520.svg");
+        background-repeat: no-repeat;      
+      }
+      }
+      @media only screen and (min-width: 1200px) {
+        .backgroundimage {
+          background-image: url("background-page-1520.svg");
+          background-repeat: no-repeat;
+          height: 640px;
+  
+        }
+      }
   </style>
 
 </head>
@@ -93,9 +108,9 @@
       <img src="logo.svg" alt="image">
     </h5>
     <nav class="my-2 my-md-0 mr-md-3">
-      <a class="p-2 text-dark" href="dashbord.html"><b style="color: #26cf26;">Crops</b></a>
-      <a class="p-2 text-dark" href="forum.html"><b style="color: #26cf26;"> Forum </b></a>
-      <a class="p-2 text-dark" href="machinery.html"> <b style="color: #26cf26;">Machinery Help</b></a>
+      <a class="p-2 text-dark" href="dashbord.html"><b style="color: #00B01D;">Crops</b></a>
+      <a class="p-2 text-dark" href="forum.html"><b style="color: #00B01D;"> Forum </b></a>
+      <a class="p-2 text-dark" href="machinery.html"> <b style="color: #00B01D;">Machinery Help</b></a>
       <a href="profile.html"> <i class="fa fa-user" aria-hidden="true"></i></a>
     </nav>
 
@@ -104,11 +119,11 @@
 
 
 
-  <main role="main" class="">
+  <main role="main" class="backgroundimage">
     <br>
     <div class="row">
       <div class="col-md-7">
-        <h1 style="margin-left: 30px; color: #26cf26;font-family: Gill Sans Extrabold, sans-serif;"> Profile Management
+        <h1 style="margin-left: 30px; color: #00B01D;font-family: Gill Sans Extrabold, sans-serif;"> Profile Management
         </h1>
       </div>
       <div class="col-md-5" style="left: 25%;">
@@ -124,7 +139,7 @@
       <div class="my-2 p-3 bg-white rounded shadow-sm">
         <h3 style=" color: #9e8516f5;" class="border-bottom border-gray pb-2 mb-0" id="profileName"></h3>
         <br>
-        <h4 style=" color: #26cf26;" id="showIf" class="border-bottom border-gray pb-2 mb-0"> Crops Details Provided
+        <h4 style=" color: #00B01D;" id="showIf" class="border-bottom border-gray pb-2 mb-0"> Crops Details Provided
         </h4>
         <div class="buttons-margin">
           <br>
@@ -134,7 +149,7 @@
         </div>
         <br>
         <hr>
-        <h4 style="color: #26cf26" class="border-bottom border-gray pb-2 mb-0">Tools Posted</h4>
+        <h4 style="color: #00B01D" class="border-bottom border-gray pb-2 mb-0">Tools Posted</h4>
         <br>
         <div id="tableVIew">
 
@@ -154,22 +169,22 @@
             </div>
             <div class="modal-body">
               <div class="p-2">
-                <H2 style="color: #26cf26;">Description</H2>
+                <H2 style="color: #00B01D;">Description</H2>
                 <textarea rows="2" cols="50" placeholder="Give inputs about the crop " aria-describedby="button-addon1"
-                  class="form-control border-0 bg-light" style="color: #28A745;" id="newdescription"></textarea>
-                <H2 style="color: #26cf26;"> Fertilizer</H2>
+                  class="form-control border-0 bg-light" style="color: #00B01D;" id="newdescription"></textarea>
+                <H2 style="color: #00B01D;"> Fertilizer</H2>
                 <input type="search" placeholder="Enter the Fertilizer that you have used" aria-describedby="button-addon1"
                   class="form-control border-0 bg-light" style="color: #28ec28;" id="newFertilizer">
       
                 <br>
                 <div class="parent">
                   <div>
-                    <H2 style="color: #26cf26;"> Weather Condition </H2>
+                    <H2 style="color: #00B01D;"> Weather Condition </H2>
                     <!-- <p style="color: #9e8516f5;">55°F and 75°F</p></div> -->
                     <input type="search" placeholder="Tell us suitable weather condition" aria-describedby="button-addon1"
                       class="form-control border-0 bg-light" style="color: #28ec28;" id="newweather">
                     <div>
-                      <H2 style="color: #26cf26;"> Water Timings </H2>
+                      <H2 style="color: #00B01D;"> Water Timings </H2>
                       <input type="search" placeholder="Enter the Water Timings" aria-describedby="button-addon1"
                         class="form-control border-0 bg-light" style="color: #28ec28;" id="newWater">
                     </div>
@@ -228,7 +243,7 @@
               
               // newNode.style.display='block'
               // newNode.innerHTML = crop.cName.charAt(0).toUpperCase() + crop.cName.slice(1);
-              newNode += "<a id=\"cropcropType\" class=\" btn btn-outline-success col-md-1\" data-toggle=\"modal\" data-target=\".bd-example-modal-lg\" onclick=\"popModel(\'" + crop.id + "\'" + ")\" >" + crop.cName.charAt(0).toUpperCase() + crop.cName.slice(1) + "</a>";
+              newNode += "<a id=\"cropcropType\" class=\" btn btn-outline-success col-md-1 m-2\" data-toggle=\"modal\" data-target=\".bd-example-modal-lg\" onclick=\"popModel(\'" + crop.id + "\'" + ")\" >" + crop.cName.charAt(0).toUpperCase() + crop.cName.slice(1) + "</a>";
               //newNode +=  "</a>";
               
               // newNode.onclick = function () {
@@ -281,7 +296,7 @@
             let input1 = document.createElement('input');
             input1.type = 'text';
             input1.className = "form-control border-0 bg-light";
-            input1.style = "color: #28A745;";
+            input1.style = "color: #00B01D;";
             input1.disabled = true
             input1.id = "qua" + t.id;
             input1.value = t.quantity
@@ -293,7 +308,7 @@
             let input2 = document.createElement('input');
             input2.type = 'text';
             input2.className = "form-control border-0 bg-light";
-            input2.style = "color: #28A745;";
+            input2.style = "color: #00B01D;";
             input2.disabled = true
             input2.id = "pri" + t.id;
             input2.value = t.price

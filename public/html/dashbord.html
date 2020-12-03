@@ -5,7 +5,7 @@
   <title>Agrow Help</title>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <link rel="icon" href="../seedling.svg" type="image/gif" sizes="16x16">
+  <link rel="icon" href="../seedling.svg" type="image/gif" >
   <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@4.5.3/dist/css/bootstrap.min.css"
     integrity="sha384-TX8t27EcRE3e/ihU7zmQxVncDAy5uIKz4rEkgIXeMed4M0jlfIDPvg6uqKI2xXr2" crossorigin="anonymous">
   <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/font-awesome/4.7.0/css/font-awesome.min.css"
@@ -15,6 +15,21 @@
       color: white;
     }
 
+
+    @media only screen and (min-width: 992px) {
+        .backgroundimage{
+        background-image: url("background-page-1520.svg");
+        background-repeat: no-repeat;      
+      }
+      }
+      @media only screen and (min-width: 1200px) {
+        .backgroundimage {
+          background-image: url("background-page-1520.svg");
+          background-repeat: no-repeat;
+          height: 640px;
+  
+        }
+      }
     .shadow-sm {
       box-shadow: 0 .125rem .25rem rgba(0, 0, 0, .075) !important;
     }
@@ -67,7 +82,7 @@
 
     a.text-dark:focus,
     a.text-dark:hover {
-      color: #26cf26;
+      color: #00B01D;
     }
 
     /* #Beg{
@@ -92,9 +107,9 @@
       <img src="logo.svg" alt="image">
     </h5>
     <nav class="my-2 my-md-0 mr-md-3">
-      <a class="p-2 text-dark" href="dashbord.html"><b style="color: #26cf26;">Crops</b></a>
-      <a class="p-2 text-dark" href="forum.html"><b style="color: #26cf26;"> Forum </b></a>
-      <a class="p-2 text-dark" href="machinery.html"> <b style="color: #26cf26;">Machinery Help</b></a>
+      <a class="p-2 text-dark" href="dashbord.html"><b style="color: #00B01D;">Crops</b></a>
+      <a class="p-2 text-dark" href="forum.html"><b style="color: #00B01D;"> Forum </b></a>
+      <a class="p-2 text-dark" href="machinery.html"> <b style="color: #00B01D;">Machinery Help</b></a>
       <a href="profile.html"> <i class="fa fa-user" aria-hidden="true"></i></a>
     </nav>
 
@@ -103,10 +118,10 @@
 
 
 
-  <main role="main" class="">
+  <main role="main" class="backgroundimage">
     <br>
 
-    <h1 style="margin-left: 30px; color: #26cf26;font-family: Gill Sans Extrabold, sans-serif;"> Crops</h1>
+    <h1 style="margin-left: 30px; color: #00B01D;font-family: Gill Sans Extrabold, sans-serif;"> Crops</h1>
     <div class="container">
       <div class="my-3 p-3 col-md-12 bg-white rounded shadow-sm">
         <div class="container">
@@ -148,10 +163,14 @@
             </div>
           </div>
 
-        </div>
 
+         
+
+        </div>
+       
 
       </div>
+      <p class="m-3"><strong>* Select the crop you required and can also search for the crop *</strong></p>
     </div>
   </main>
 
@@ -206,7 +225,7 @@
            
             let newNode = document.createElement('a');
             newNode.id = "cropType";
-            newNode.className = "btn btn-outline-success col-md-2";
+            newNode.className = "btn btn-outline-success col-md-2 m-2";
             newNode.onclick = function () {
               routingTool(element.id);
             };

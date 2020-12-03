@@ -9,6 +9,6 @@
   </defs>
   <g id="logo" clip-path="url(#clip-logo)">
     <rect id="seedling" width="152" height="152" transform="translate(4 5)" fill="url(#pattern)"/>
-    <text id="AGROW-Help" transform="translate(53 33)" fill="#00b01d" font-size="26" font-family="SegoePrint, Segoe Print"><tspan x="0" y="0">AGROW-Help</tspan></text>
+    <text id="AGROW-Help" transform="translate(53 33)" fill="#00b01d" font-size="26" font-family="TimesNewRomanPSMT, Times New Roman"><tspan x="0" y="0">AGROW-Help</tspan></text>
   </g>
 </svg>
