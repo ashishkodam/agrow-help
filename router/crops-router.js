@@ -1,7 +1,7 @@
 const express =  require('express');
 const router = express.Router();
 const HttpError = require('../models/http-error')
-const Crop =  require('../models/cropSchema');
+const Crop =  require('../models/cropschema');
 const User =  require('../models/userSchema');
 
 //create Crop
