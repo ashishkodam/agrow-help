@@ -145,7 +145,7 @@ console.log(userDetails);
 const urlParams = new URLSearchParams(window.location.search);
 myParam = urlParams.get('ID');
 var req = new XMLHttpRequest();
-let requestUrl = `${'http://localhost:5000/api/crops/'}${myParam}`
+let requestUrl = `${'https://agrow-help.herokuapp.com/api/crops/'}${myParam}`
 req.open('GET', requestUrl, true);
 req.setRequestHeader('Content-type', 'application/json');
 
@@ -200,7 +200,7 @@ let title = document.getElementById('tooNameID')
 
 function logout() {
       localStorage.clear()
-      location.replace("http://localhost:5000" );
+      location.replace("https://agrow-help.herokuapp.com" );
     }
 
     function navToforumDetais(param) {
@@ -208,7 +208,7 @@ function logout() {
 // //         const email = document.getElementById('inputEmail');
 // //         const password =  document.getElementById('inputPassword');
 // //         const rePassword = document.getElementById('inputRePassword');
-       location.replace("http://localhost:5000/details.html?key1="+myParam +"&key2="+param)
+       location.replace("https://agrow-help.herokuapp.com/details.html?key1="+myParam +"&key2="+param)
     }
     </script>
 </body>

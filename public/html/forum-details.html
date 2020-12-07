@@ -198,7 +198,7 @@
 
 
       var req = new XMLHttpRequest();
-      let requestUrl = `${'http://localhost:5000/api/forum/'}${myParam}`
+      let requestUrl = `${'https://agrow-help.herokuapp.com/api/forum/'}${myParam}`
       req.open('GET', requestUrl, true);
       req.setRequestHeader('Content-type', 'application/json');
 
@@ -236,7 +236,7 @@
 
     function logout() {
       localStorage.clear()
-      location.replace("http://localhost:5000" );
+      location.replace("https://agrow-help.herokuapp.com" );
     }
 
     function postComment() {
@@ -247,7 +247,7 @@
                 'fid': fid,
               }
               let req = new XMLHttpRequest();
-              let requestUrl = `${'http://localhost:5000/api/forum/'}${myParam}`
+              let requestUrl = `${'https://agrow-help.herokuapp.com/api/forum/'}${myParam}`
               req.open('PATCH', requestUrl, true);
               req.setRequestHeader('Content-type', 'application/json');
               let json = JSON.stringify({ data });
@@ -256,7 +256,7 @@
                 let data = JSON.parse(req.responseText)
                 if (req.readyState == 4 && req.status == "201") {
                   
-                  location.replace("http://localhost:5000/forum-details.html?id=" + myParam)
+                  location.replace("https://agrow-help.herokuapp.com/forum-details.html?id=" + myParam)
                 }else{
                   aler(data.message)
                 }
@@ -273,7 +273,7 @@
               }
 
       let req = new XMLHttpRequest();
-      let requestUrl = `${'http://localhost:5000/api/forum/create'}`
+      let requestUrl = `${'https://agrow-help.herokuapp.com/api/forum/create'}`
       req.open('POST', requestUrl, true);
       req.setRequestHeader('Content-type', 'application/json');
       let json = JSON.stringify({ data });

@@ -215,7 +215,7 @@
       const localdetails = JSON.parse(localStorage.getItem('userDetails'));
 
       let req = new XMLHttpRequest();
-      let requestUrl = `${'http://localhost:5000/api/users/'}${localdetails.id}`
+      let requestUrl = `${'https://agrow-help.herokuapp.com/api/users/'}${localdetails.id}`
       req.open('GET', requestUrl, true);
       req.setRequestHeader('Content-type', 'application/json');
 
@@ -379,7 +379,7 @@
 
     function logout() {
       localStorage.clear()
-      location.replace("http://localhost:5000");
+      location.replace("https://agrow-help.herokuapp.com");
     }
 
 
@@ -435,7 +435,7 @@
       }
       console.log(data)
       let req = new XMLHttpRequest();
-      let requestUrl = `${'http://localhost:5000/api/tools/update'}`
+      let requestUrl = `${'https://agrow-help.herokuapp.com/api/tools/update'}`
       req.open('PATCH', requestUrl, true);
       req.setRequestHeader('Content-type', 'application/json');
       let json = JSON.stringify({ data });
@@ -481,7 +481,7 @@
       })
       console.log(userDetails.cropsDetails)
       // let req = new XMLHttpRequest();
-      // let requestUrl = `${'http://localhost:5000/api/tools/create'}`
+      // let requestUrl = `${'https://agrow-help.herokuapp.com/api/tools/create'}`
       // req.open('PATCH', requestUrl, true);
       // req.setRequestHeader('Content-type', 'application/json');
       // let json = JSON.stringify({ data });
@@ -508,7 +508,7 @@
       }
 
       let req = new XMLHttpRequest();
-      let requestUrl = `${'http://localhost:5000/api/tools/reject'}`
+      let requestUrl = `${'https://agrow-help.herokuapp.com/api/tools/reject'}`
       req.open('POST', requestUrl, true);
       req.setRequestHeader('Content-type', 'application/json');
       let json = JSON.stringify({ data });
@@ -517,7 +517,7 @@
         let data = JSON.parse(req.responseText)
         if (req.readyState == 4 && req.status == "201") {
           //alert(data.message)
-          location.replace("http://localhost:5000/manage-tools.html")
+          location.replace("https://agrow-help.herokuapp.com/manage-tools.html")
         } else {
           alert(data.message)
         }
@@ -539,7 +539,7 @@
 
       console.log(data)
       let req = new XMLHttpRequest();
-      let requestUrl = `${'http://localhost:5000/api/tools/accept'}`
+      let requestUrl = `${'https://agrow-help.herokuapp.com/api/tools/accept'}`
       req.open('POST', requestUrl, true);
       req.setRequestHeader('Content-type', 'application/json');
       let json = JSON.stringify({ data });
@@ -548,7 +548,7 @@
         let data = JSON.parse(req.responseText)
         if (req.readyState == 4 && req.status == "201") {
           //alert(data.message)
-          location.replace("http://localhost:5000/manage-tools.html")
+          location.replace("https://agrow-help.herokuapp.com/manage-tools.html")
         } else {
           alert(data.message)
         }

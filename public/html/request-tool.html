@@ -150,7 +150,7 @@
       console.log(userDetails);
 
       var req = new XMLHttpRequest();
-      let requestUrl = `${'http://localhost:5000/api/tools/'}${myParam}`
+      let requestUrl = `${'https://agrow-help.herokuapp.com/api/tools/'}${myParam}`
       req.open('GET', requestUrl, true);
       req.setRequestHeader('Content-type', 'application/json');
 
@@ -287,7 +287,7 @@
     })(document);
 
     function routingTool(params) {
-      location.replace("http://localhost:5000/request-tool.html?id=" + params)
+      location.replace("https://agrow-help.herokuapp.com/request-tool.html?id=" + params)
     }
 
     function requestHandle(params,getId) {
@@ -306,7 +306,7 @@
       }
       console.log(data)
       let req = new XMLHttpRequest();
-      let requestUrl = `${'http://localhost:5000/api/tools/request'}`
+      let requestUrl = `${'https://agrow-help.herokuapp.com/api/tools/request'}`
       req.open('POST', requestUrl, true);
       req.setRequestHeader('Content-type', 'application/json');
       let json = JSON.stringify({ data });
@@ -327,7 +327,7 @@
     }
     function logout() {
       localStorage.clear()
-      location.replace("http://localhost:5000" );
+      location.replace("https://agrow-help.herokuapp.com" );
     }
 
 </script>

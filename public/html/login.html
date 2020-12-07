@@ -85,7 +85,7 @@ color: #00B01D;
         'password': password,
       }
       console.log(data)
-      req.open('POST', 'http://localhost:5000/api/users/login', true);
+      req.open('POST', 'https://agrow-help.herokuapp.com/api/users/login', true);
       req.setRequestHeader('Content-type', 'application/json');
       // Converting JSON data to string 
       var json = JSON.stringify({ data });
@@ -95,7 +95,7 @@ color: #00B01D;
     if (req.readyState == 4 && req.status == "201") { 
       localStorage.setItem('userDetails',JSON.stringify(data.message));
       setTimeout(() => {
-        location.replace("http://localhost:5000/dashbord.html")
+        location.replace("https://agrow-help.herokuapp.com/dashbord.html")
       }, 2000);
       
     } else {

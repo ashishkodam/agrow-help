@@ -196,7 +196,7 @@
 
 
       var req = new XMLHttpRequest();
-      let requestUrl = `${'http://localhost:5000/api/crops/'}`
+      let requestUrl = `${'https://agrow-help.herokuapp.com/api/crops/'}`
       req.open('GET', requestUrl, true);
       req.setRequestHeader('Content-type', 'application/json');
 
@@ -271,10 +271,10 @@
     }
     function routingTool(params) {
       if (userDetails.role === "1") {
-        location.replace("http://localhost:5000/detailsList.html?ID=" + params)
+        location.replace("https://agrow-help.herokuapp.com/detailsList.html?ID=" + params)
       }
       else {
-        location.replace("http://localhost:5000/details.html?ID=" + params)
+        location.replace("https://agrow-help.herokuapp.com/details.html?ID=" + params)
       }
     }
 
@@ -299,7 +299,7 @@
 
     function logout() {
       localStorage.clear()
-      location.replace("http://localhost:5000" );
+      location.replace("https://agrow-help.herokuapp.com" );
     }
     function expSearchHandle() {
       let ulElement = document.getElementById('myUL');
@@ -328,7 +328,7 @@
         'cName':document.getElementById('InputESearch').value
       }
       let req = new XMLHttpRequest();
-      let requestUrl = `${'http://localhost:5000/api/crops/create'}`
+      let requestUrl = `${'https://agrow-help.herokuapp.com/api/crops/create'}`
       req.open('POST', requestUrl, true);
       req.setRequestHeader('Content-type', 'application/json');
       let json = JSON.stringify({ send });
@@ -338,7 +338,7 @@
         if (req.readyState == 4 && req.status == "201") {
           console.log(data);
           routingTool(data.crop.id)
-          //location.replace("http://localhost:5000/forum.html")
+          //location.replace("https://agrow-help.herokuapp.com/forum.html")
             }else{
                   alert(data.message)
             }

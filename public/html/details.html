@@ -214,7 +214,7 @@
 
       var req = new XMLHttpRequest();
 
-      let requestUrl = userDetails.role === '1' ? `${'http://localhost:5000/api/crops/'}${myParam}` : `${'http://localhost:5000/api/crops/'}${myParam}`
+      let requestUrl = userDetails.role === '1' ? `${'https://agrow-help.herokuapp.com/api/crops/'}${myParam}` : `${'https://agrow-help.herokuapp.com/api/crops/'}${myParam}`
       req.open('GET', requestUrl, true);
       req.setRequestHeader('Content-type', 'application/json');
 
@@ -278,7 +278,7 @@
     })(document);
     function logout() {
       localStorage.clear()
-      location.replace("http://localhost:5000");
+      location.replace("https://agrow-help.herokuapp.com");
     }
     function submitInputs() {
       const description = document.getElementById('newdescription').value;
@@ -297,7 +297,7 @@
       console.log(data)
 
       let req = new XMLHttpRequest();
-      let requestUrl = `${'http://localhost:5000/api/crops/'}${myParam}`
+      let requestUrl = `${'https://agrow-help.herokuapp.com/api/crops/'}${myParam}`
       req.open('PATCH', requestUrl, true);
       req.setRequestHeader('Content-type', 'application/json');
       let json = JSON.stringify({ data });
@@ -310,7 +310,7 @@
           document.getElementById('newweather').value = '';
           document.getElementById('newWater').value = '';
           alert(data.message)
-          // location.replace("http://localhost:5000/forum-details.html?id=" + myParam)
+          // location.replace("https://agrow-help.herokuapp.com/forum-details.html?id=" + myParam)
         } else {
           aler(data.message)
         }
@@ -325,7 +325,7 @@
       }
       console.log(data);
       let req = new XMLHttpRequest();
-      let requestUrl = `${'http://localhost:5000/api/crops/like'}`
+      let requestUrl = `${'https://agrow-help.herokuapp.com/api/crops/like'}`
       req.open('POST', requestUrl, true);
       req.setRequestHeader('Content-type', 'application/json');
       let json = JSON.stringify({ data });
@@ -348,7 +348,7 @@
       }
       console.log(data);
       let req = new XMLHttpRequest();
-      let requestUrl = `${'http://localhost:5000/api/crops/dislike'}`
+      let requestUrl = `${'https://agrow-help.herokuapp.com/api/crops/dislike'}`
       req.open('POST', requestUrl, true);
       req.setRequestHeader('Content-type', 'application/json');
       let json = JSON.stringify({ data });
