@@ -93,7 +93,7 @@ router.post('/login', async (req,res, next) => {
         );
         return next(err);  
     }
-
+    console.log(identifiedUser)
     if(!identifiedUser || identifiedUser.password !==  password) return new HttpError('Email or password does not identified, try again',401)
     res.status(201).json({message:identifiedUser.toObject({getters:true})} )
 });
