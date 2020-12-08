@@ -34,7 +34,7 @@ router.patch('/create', async (req, res, next) => {
         return next(error);
     }
     
-
+    console.log('existingTool',existingTool)
     if (!existingTool) {
 
         const createTool = new Tool({
